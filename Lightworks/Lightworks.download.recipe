@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of EditShare Lightworks</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.download.lightworks</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Lightworks</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.2</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>LightworksURLProvider</string>
+            <key>Arguments</key>
+            <dict>
+	    </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+            	<key>url</key>
+            	<string>%url%</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>

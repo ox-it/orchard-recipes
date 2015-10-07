@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of Time Out</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.download.TimeOut</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>TimeOut</string>
+        <key>BASE_URL</key>
+        <string>http://www.dejal.com</string>
+        <key>HOMEPAGE_URL</key>
+        <string>%BASE_URL%/mac/</string>
+        <key>DOWNLOAD_URL</key>
+        <string>%BASE_URL%/download</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key> 
+            <dict>
+              <key>url</key>
+              <string>%HOMEPAGE_URL%</string>
+              <key>result_output_var_name</key>
+              <string>DOWNLOADPAGE_URL</string>
+              <key>re_pattern</key>
+              <string>.*href=&quot;\/(download\/\?prod=timeout.*)&quot; title.*</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key> 
+            <dict>
+              <key>url</key>
+              <string>%BASE_URL%/%DOWNLOADPAGE_URL%</string>
+              <key>result_output_var_name</key>
+              <string>FILENAME</string>
+              <key>re_pattern</key>
+              <string>http-equiv=&quot;refresh&quot;.*url=(.*zip)&quot;</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key> 
+            <dict>
+                <key>url</key>
+                <string>%DOWNLOAD_URL%/%FILENAME%</string>
+                <key>filename</key>
+                <string>%NAME%.zip</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Unarchiver</string>
+            <key>Arguments</key>
+            <dict>
+                <key>archive_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

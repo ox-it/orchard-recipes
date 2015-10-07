@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of the Haskell Platfrom  and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.munki.HaskellPlatform</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Haskell_Platform</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>%NAME%</string>
+        <key>DISPLAY_NAME</key>
+        <string>Haskell Platform</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>minimum_os_version</key><!-- taken from download page -->
+            <string>10.6</string>
+            <key>developer</key>
+            <string>Haskell.org</string>
+            <key>display_name</key>
+            <string>%DISPLAY_NAME%</string>
+            <key>category</key>
+            <string>Software Development</string>
+            <key>description</key>
+            <string>Haskell is an advanced, standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing. It is named after logician &lt;a href=&quot;https://en.wikipedia.org/wiki/Haskell_Curry&quot;&gt;Haskell Curry&lt;/a&gt;.</string>
+        </dict>
+    </dict>
+    <key>ParentRecipe</key>
+    <string>uk.ac.ox.orchard.download.HaskellPlatform</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>

@@ -1,0 +1,2 @@
+#!/bin/sh
+/bin/ln -sf /opt/apache_maven/bin/mvn /usr/local/bin/mvn

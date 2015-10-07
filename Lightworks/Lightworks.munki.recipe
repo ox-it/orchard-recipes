@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest version of EditShare Lightworks and imports into a Munki repo.</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.munki.lightworks</string>
+    <key>Input</key>
+    <dict>
+        <key>BRANCH</key>
+        <string>release</string>
+        <key>NAME</key>
+        <string>Lightworks</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>%NAME%</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>Lightworks is EditShare's Academy and Emmy award-winning, professional video editing software</string>
+            <key>display_name</key>
+            <string>%NAME%</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.2</string>
+    <key>ParentRecipe</key>
+    <string>uk.ac.ox.orchard.pkg.lightworks</string>
+    <key>Process</key>
+    <array>
+        <dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pkg_path%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

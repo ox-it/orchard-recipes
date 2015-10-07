@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads the current release version of the Haskell Platform</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.HaskellPlatform</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>Haskell_Platform</string>
+    <key>BASE_URL</key>
+    <string>https://www.haskell.org</string>
+    <key>SEARCH_URL</key>
+    <string>%BASE_URL%/platform/mac.html</string>
+    <key>SEARCH_PATTERN</key>
+       <!-- (?P<pkgurl>platform\/download\/(?P<version>.*)\/.*\.pkg)</string> -->
+    <string>(?P&lt;pkgurl&gt;platform\/download\/(?P&lt;version&gt;.*)\/.*\.pkg)</string>
+  </dict>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+        <string>%SEARCH_URL%</string>
+        <key>re_pattern</key>
+        <string>%SEARCH_PATTERN%</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>filename</key>
+        <string>%NAME%-%version%.pkg</string>
+        <key>url</key>
+        <string>%BASE_URL%/%pkgurl%</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
+</dict>
+</plist>

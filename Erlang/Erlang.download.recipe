@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Copyright</key>
+    <string>(c) University of Oxford 2015 - Ben Goodstein (fuzzylogiq on github)</string>
+    <key>Description</key>
+    <string>Downloads the latest (or a particular) version of Erlang from Erlang OTP.</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.download.Erlang</string>
+    <key>Input</key>
+    <dict>
+      <key>NAME</key>
+      <string>Erlang</string>
+      <key>TARGET_OS</key>
+      <string>10.10</string>
+      <key>VERSION</key>
+      <string>latest</string>
+      <key>FLAVOUR</key>
+      <string>general</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+      <dict>
+        <key>Processor</key>
+        <string>ErlangURLProvider</string>
+        <key>Arguments</key>
+        <dict>
+          <key>target_os</key>
+          <string>%TARGET_OS%</string>
+          <key>version</key>
+          <string>%VERSION%</string>
+          <key>flavour</key>
+          <string>%FLAVOUR%</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>URLDownloader</string>
+        <key>Arguments</key>
+        <dict>
+          <key>filename</key>
+          <string>%NAME%.dmg</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>EndOfCheckPhase</string>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>CodeSignatureVerifier</string>
+        <key>Arguments</key>
+        <dict>
+          <key>input_path</key>
+          <string>%pathname%/EslErlang*.pkg</string>
+          <key>expected_authority_names</key>
+          <array>
+            <string>Developer ID Installer: Erlang Solutions Ltd</string>
+            <string>Developer ID Certification Authority</string>
+            <string>Apple Root CA</string>
+          </array>
+        </dict>
+      </dict>
+    </array>
+  </dict> 
+</plist>
