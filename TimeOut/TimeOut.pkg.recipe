@@ -44,27 +44,7 @@
                 <true/>
             </dict>
         </dict>
-
         <dict>
-            <key>Processor</key>
-            <string>PlistEditor</string>
-            <key>Arguments</key>
-            <dict>
-              <key>output_plist_path</key>
-              <string>/Library/Preferences/com.dejal.timeout.plist</string>
-              <key>plist_data</key>
-              <dict>
-                <key>SoftwareUpdateMode</key>
-                <integer>0</integer>
-                <key>SoftwareUpdateDefaultLevel</key>
-                <integer>0</integer>
-              </dict>
-            </dict>
-        </dict>
-
-        <dict>
-            <key>Comment</key>
-            <string>Get version from the app</string>
             <key>Processor</key>
             <string>Versioner</string>
             <key>Arguments</key>
