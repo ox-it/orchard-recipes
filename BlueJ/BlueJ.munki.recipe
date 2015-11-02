@@ -2,8 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>Copyright</key>
-    <string>(c) University of Oxford 2015 - Ben Goodstein (fuzzylogiq on github)</string>
+    <key>Attribution</key>
+    <dict>
+      <key>Copyright</key>
+      <string>University of Oxford 2015</string>
+      <key>Author</key>
+      <dict>
+        <key>Name</key>
+        <string>Ben Goodstein</string>
+        <key>Email</key>
+        <string>ben.goodstein@it.ox.ac.uk</string>
+        <key>Github</key>
+        <string>fuzzylogiq</string>
+      </dict>
+    </dict>
     <key>Description</key>
     <string></string>
     <key>Identifier</key>

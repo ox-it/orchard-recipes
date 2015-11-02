@@ -7,7 +7,14 @@
     <key>Copyright</key>
     <string>University of Oxford 2015</string>
     <key>Author</key>
-    <string>Ben Goodstein</string>
+    <dict>
+      <key>Name</key>
+      <string>Ben Goodstein</string>
+      <key>Email</key>
+      <string>ben.goodstein@it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>fuzzylogiq</string>
+    </dict>
   </dict>
   <key>Description</key>
   <string>Downloads the latest version of University of Kent's BlueJ</string>
