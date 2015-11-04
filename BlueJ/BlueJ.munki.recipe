@@ -17,7 +17,7 @@
       </dict>
     </dict>
     <key>Description</key>
-    <string></string>
+    <string>Download's the latest version of University of Kent's BlueJ and imports into Munki</string>
     <key>Identifier</key>
     <string>uk.ac.ox.orchard.munki.BlueJ</string>
     <key>Input</key>
