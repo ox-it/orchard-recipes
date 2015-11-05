@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2015</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ben Goodstein</string>
+      <key>Email</key>
+      <string>ben.goodstein@it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>fuzzylogiq</string>
+    </dict>
+  </dict>
+	<key>Input</key>
+	<dict>
+		<key>BUNDLE_ID</key>
+		<string>com.divergentmedia.EditReady</string>
+		<key>NAME</key>
+		<string>EditReady</string>
+	</dict>
+  <key>Description</key>
+	<string>Downloads the latest version of EditReady and creates a package.</string>
+	<key>Identifier</key>
+	<string>uk.ac.ox.orchard.pkg.EditReady</string>
+	<key>MinimumVersion</key>
+	<string>0.5.0</string>
+	<key>ParentRecipe</key>
+	<string>uk.ac.ox.orchard.download.EditReady</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_request</key>
+				<dict>
+					<key>chown</key>
+					<array>
+						<dict>
+							<key>group</key>
+							<string>admin</string>
+							<key>path</key>
+							<string>Applications</string>
+							<key>user</key>
+							<string>root</string>
+						</dict>
+					</array>
+					<key>id</key>
+					<string>%BUNDLE_ID%</string>
+					<key>options</key>
+					<string>purge_ds_store</string>
+					<key>pkgname</key>
+					<string>%NAME%-%version%</string>
+					<key>pkgroot</key>
+					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>PkgCreator</string>
+		</dict>
+	</array>
+</dict>
+</plist>
