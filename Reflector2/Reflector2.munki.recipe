@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Attribution</key>
+    <dict>
+      <key>Copyright</key>
+      <string>University of Oxford 2015</string>
+      <key>Author</key>
+      <dict>
+        <key>Name</key>
+        <string>Ben Goodstein</string>
+        <key>Email</key>
+        <string>ben.goodstein&lt;at;&gt;it.ox.ac.uk</string>
+        <key>Github</key>
+        <string>fuzzylogiq</string>
+      </dict>
+    </dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Reflector 2 and imports it into Munki</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.munki.Reflector2</string>
+    <key>Input</key>
+    <dict>
+      <key>MUNKI_REPO_SUBDIR</key>
+      <string>Reflector2</string>
+      <key>NAME</key>
+      <string>Reflector2</string>
+      <key>pkginfo</key>
+      <dict>
+        <key>catalogs</key>
+        <array>
+          <string>unstable</string>
+        </array>
+        <key>category</key>
+        <string>Office and Productivity</string>
+        <key>description</key>
+        <string>Reflector is a wireless mirroring and streaming receiver that works great with Google Cast™, AirPlay™ and AirParrot 2®. Mirror your content to the big screen without wires or complicated setups. Play games, watch movies, demo applications or present from the palm of your hand. Even send your screens directly to YouTube for others to watch live. </string>
+        <key>display_name</key>
+        <string>Reflector 2</string>
+        <key>name</key>
+        <string>%NAME%</string>
+        <key>unattended_install</key>
+        <true/>
+      </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>uk.ac.ox.orchard.download.Reflector2</string>
+    <key>Process</key>
+    <array>
+      <dict>
+        <key>Processor</key>
+        <string>MunkiImporter</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pkg_path</key>
+          <string>%pathname%</string>
+          <key>repo_subdirectory</key>
+          <string>%MUNKI_REPO_SUBDIR%</string>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>
