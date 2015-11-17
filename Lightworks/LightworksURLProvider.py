@@ -3,7 +3,7 @@
 # LightworksURLProvider custom processor for autopkg
 #
 # Copyright (C) 2015 Oxford University
-#    Ben Goodstein <ben.goodstein(at)it.ox.ac.uk>
+#    Ben Goodstein <ben.goodstein at it.ox.ac.uk>
 #
 # This program is free software; you can redistribute
 # it and/or modify it under the terms of the GNU
