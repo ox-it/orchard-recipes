@@ -33,7 +33,7 @@
           <string>unstable</string>
         </array>
         <key>category</key>
-        <string>Utilitird</string>
+        <string>Utilities</string>
         <key>description</key>
         <string>Eyefi Mobi Desktop is  software to upload an existing, historical photo collection from your computer to Eyefi Cloud, or simply to activate your Eyefi Mobi cards for wireless transfer.</string>
         <key>display_name</key>
@@ -50,6 +50,18 @@
     <string>EyefiMobiDesktop.pkg.recipe</string>
     <key>Process</key>
     <array>
+      <dict>
+        <key>Processor</key>
+	<string>MunkiPkginfoMerger</string>
+	<key>Arguments</key>
+	<dict>
+	  <key>additional_pkginfo</key>
+	  <dict>
+	    <key>minimum_os_version</key>
+	    <string>10.10.0</string>
+	  </dict>
+	</dict>
+      </dict>
       <dict>
         <key>Processor</key>
         <string>MunkiImporter</string>
