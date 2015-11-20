@@ -36,6 +36,8 @@
         <string>Utilities</string>
         <key>description</key>
         <string>Eyefi Mobi Desktop is  software to upload an existing, historical photo collection from your computer to Eyefi Cloud, or simply to activate your Eyefi Mobi cards for wireless transfer.</string>
+	<key>developer</key>
+	<string>Eye-Fi, Inc.</string>
         <key>display_name</key>
         <string>Eyefi Mobi Desktop</string>
         <key>name</key>
