@@ -17,7 +17,7 @@
       </dict>
     </dict>
     <key>Description</key>
-    <string></string>
+    <string>Download the current version of Eyefi Mobi Desktop and extracts the version info from the package</string>
     <key>Identifier</key>
     <string>uk.ac.ox.orchard.pkg.EyefiMobiDesktop</string>
     <key>Input</key>
@@ -76,7 +76,7 @@
 	  <key>target</key>
 	  <string>%RECIPE_CACHE_DIR%/downloads/%NAME%-%version%.pkg</string>
 	</dict>
-      </dict>
+      </dict> 
     </array>
   </dict>
 </plist>
