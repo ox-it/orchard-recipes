@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Attribution</key>
+    <dict>
+      <key>Copyright</key>
+      <string>University of Oxford 2015</string>
+      <key>Author</key>
+      <dict>
+        <key>Name</key>
+        <string>Gary Ballantine</string>
+        <key>Email</key>
+        <string>gary.ballantine at it.ox.ac.uk</string>
+        <key>Github</key>
+        <string>AltMeta</string>
+      </dict>
+    </dict>
+    <key>Description</key>
+    <string>Downloads the current version of EyefiMobiDesktop and imports into Munki</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.munki.EyefiMobiDesktop</string>
+    <key>Input</key>
+    <dict>
+      <key>MUNKI_REPO_SUBDIR</key>
+      <string>%NAME%</string>
+      <key>NAME</key>
+      <string>Eyefi_Mobi_Desktop</string>
+      <key>pkginfo</key>
+      <dict>
+        <key>catalogs</key>
+        <array>
+          <string>unstable</string>
+        </array>
+        <key>category</key>
+        <string>Utilitird</string>
+        <key>description</key>
+        <string>Eyefi Mobi Desktop is  software to upload an existing, historical photo collection from your computer to Eyefi Cloud, or simply to activate your Eyefi Mobi cards for wireless transfer.</string>
+        <key>display_name</key>
+        <string>Eyefi Mobi Desktop</string>
+        <key>name</key>
+        <string>%NAME%</string>
+        <key>unattended_install</key>
+        <true/>
+      </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>EyefiMobiDesktop.pkg.recipe</string>
+    <key>Process</key>
+    <array>
+      <dict>
+        <key>Processor</key>
+        <string>MunkiImporter</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pkg_path</key>
+          <string>%RECIPE_CACHE_DIR%/downloads/%NAME%-%version%.pkg</string>
+          <key>repo_subdirectory</key>
+          <string>%MUNKI_REPO_SUBDIR%</string>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>
