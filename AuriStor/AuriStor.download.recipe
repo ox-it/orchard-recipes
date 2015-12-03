@@ -28,9 +28,12 @@
     <string>https://www.auristor.com</string>
     <key>SEARCH_URL</key>
     <string>%BASE_URL%/filesystem/client-installer/registration-complete</string>
+    <!-- at time of writting there are 3 versions available 10.11, 10.10 and 10.9 -->
+    <key>OSX_VER</key>
+    <string>10.11</string>
     <key>SEARCH_PATTERN</key>
-    <!-- (?P<url>downloads.*osx/(?P<os>[^/]*).*client-(?P<version>[^-]*)(?P<rel>[^.]*).dmg) -->
-    <string>(?P&lt;url&gt;downloads.*osx/(?P&lt;os&gt;[^/]*).*client-(?P&lt;version&gt;[^-]*)(?P&lt;rel&gt;[^.]*).dmg)</string>
+    <!-- (?P<url>downloads.*os-%OSX_VER%.*client-(?P<version>[^-]*)(?P<rel>[^.]*).dmg) -->
+    <string>(?P&lt;url&gt;downloads.*os-%OSX_VER%.*client-(?P&lt;version&gt;[^-]*)(?P&lt;rel&gt;[^.]*).dmg)</string>
     <key>USER_AGENT</key>
     <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
   </dict>
