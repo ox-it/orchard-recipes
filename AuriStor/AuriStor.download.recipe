@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2015</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Gary Ballantine</string>
+      <key>Email</key>
+      <string>gary.ballantine at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>AltMeta</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the current Version of AuriStor AFS Client</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.AuriStor</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>AuriStor</string>
+    <key>BASE_URL</key>
+    <string>https://www.auristor.com</string>
+    <key>SEARCH_URL</key>
+    <string>%BASE_URL%/filesystem/client-installer/registration-complete</string>
+    <!-- at time of writting there are 3 versions available 10.11, 10.10 and 10.9 -->
+    <key>OSX_VER</key>
+    <string>10.11</string>
+    <key>SEARCH_PATTERN</key>
+    <!-- (?P<url>downloads.*os-%OSX_VER%.*client-(?P<version>[^-]*)(?P<rel>[^.]*).dmg) -->
+    <string>(?P&lt;url&gt;downloads.*os-%OSX_VER%.*client-(?P&lt;version&gt;[^-]*)(?P&lt;rel&gt;[^.]*).dmg)</string>
+    <key>USER_AGENT</key>
+    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.4.0</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+	<string>%SEARCH_URL%</string>
+	<key>re_pattern</key>
+	<string>%SEARCH_PATTERN%</string>
+	<key>request_headers</key>
+	<dict>
+          <key>user-agent</key>
+	  <string>%USER_AGENT%</string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>filename</key>
+	<string>%NAME%%rel%-%version%.dmg</string>
+	<key>request_headers</key>
+	<dict>
+	  <key>user-agent</key>
+	  <string>%USER_AGENT%</string>
+	</dict>
+	<key>url</key>
+	<string>%BASE_URL%/%url%</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
+</dict> 
+</plist>
