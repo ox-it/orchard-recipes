@@ -30,12 +30,14 @@
       <dict>
         <key>catalogs</key>
         <array>
-          <string>unstable</string>
+          <string>testing</string>
         </array>
         <key>category</key>
         <string>Software Development</string>
         <key>description</key>
         <string>The Oxygen XML Editor is a multi-platform XML editor, XSLT/XQuery debugger and profiler with Unicode support.</string>
+        <key>developer</key>
+        <string>SyncRO Soft SRL</string>
         <key>display_name</key>
         <string>Oxygen XML Editor</string>
         <key>name</key>
