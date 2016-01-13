@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Attribution</key>
+    <dict>
+        <key>Copyright</key>
+        <string>University of Oxford 2016</string>
+	<key>Author</key>
+	<dict>
+	    <key>Name</key>
+	    <string>Ian Collier</string>
+	    <key>Email</key>
+	    <string>imc at cs.ox.ac.uk</string>
+	    <key>Github</key>
+	    <string>imc0</string>
+	</dict>
+    </dict>
+    <key>Description</key>
+    <string>Downloads the current release version of Heroku Toolbelt</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.download.HerokuToolbelt</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Heroku_Toolbelt</string>
+        <key>url</key>
+        <string>https://s3.amazonaws.com/assets.heroku.com/heroku-toolbelt/heroku-toolbelt.pkg</string>
+    </dict>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
