@@ -18,6 +18,10 @@
       <string>%NAME%</string>
       <key>pkginfo</key>
       <dict>
+        <key>catalogs</key>
+	<array>
+	  <string>stable</string>
+	</array>
         <key>category</key>
         <string>%MUNKI_CATEGORY%</string>
         <key>description</key>
