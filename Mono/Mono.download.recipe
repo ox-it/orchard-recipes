@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Gary Ballantine</string>
+      <key>Email</key>
+      <string>gary.ballantine at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>AltMeta</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime. A growing family of solutions and an active and enthusiastic contributing community is helping position Mono to become the leading choice for development of cross platform applications.</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.Mono</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>Mono</string>
+    <key>BASE_URL</key>
+    <string>http://www.mono-project.com</string>
+    <key>SEARCH_URL</key>
+    <string>%BASE_URL%/download/</string>
+    <key>SEARCH_PATTERN</key>
+    <!-- .*"(?P<url>h.*pkg).*32-bit -->
+    <string>.*&quot;(?P&lt;url&gt;h.*pkg).*32-bit</string>
+    <key>USER_AGENT</key>
+    <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.4.0</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+      	<key>url</key>
+	<string>%SEARCH_URL%</string>
+	<key>re_pattern</key>
+	<string>%SEARCH_PATTERN%</string>
+	<key>request_headers</key>
+	<dict>
+	  <key>user-agent</key>
+	  <string>%USER_AGENT%</string>
+	</dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>request_headers</key>
+	<dict>
+	  <key>user-agent</key>
+	  <string>%USER_AGENT%</string>
+	</dict>
+	<key>url</key>
+	<string>%url%</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
+</dict> 
+</plist>
