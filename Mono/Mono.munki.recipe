@@ -35,7 +35,7 @@
         <key>category</key>
         <string>Software Development</string>
         <key>description</key>
-        <string>ono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime. A growing family of solutions and an active and enthusiastic contributing community is helping position Mono to become the leading choice for development of cross platform applications.</string>
+        <string>Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime. A growing family of solutions and an active and enthusiastic contributing community is helping position Mono to become the leading choice for development of cross platform applications.</string>
         <key>display_name</key>
 	<string>Mono</string>
 	<key>developer</key>
