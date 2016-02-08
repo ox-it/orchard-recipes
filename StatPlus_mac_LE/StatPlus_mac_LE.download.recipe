@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Christopher Beard</string>
+      <key>Email</key>
+      <string>christopher.beard at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>cdbeard</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the latest version of StatPlus:mac LE</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.StatPlus_mac_LE</string>
+  <key>Input</key>
+  <dict>
+    <key>DOWNLOAD_URL</key>
+    <string>http://download.analystsoft.com/statplusmacle.zip</string>
+    <key>NAME</key>
+    <string>StatPlus_mac_LE</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.5.2</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+        <string>%DOWNLOAD_URL%</string>
+      </dict>
+    </dict>  
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>Unarchiver</string>
+    </dict>
+  </array>   
+</dict>
+</plist>
