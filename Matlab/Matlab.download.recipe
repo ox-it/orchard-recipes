@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Gary Ballantine</string>
+      <key>Email</key>
+      <string>gary.ballantine at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>AltMeta</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Grabs the newest Matlab ISO from AFS</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.Matlab</string>
+  <key>Input</key>
+  <dict>
+  </dict>
+  <key>MinimumVersion</key>
+  <string></string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>AFSFileSearcher</string>
+      <key>Arguments</key>
+      <dict>
+      	<key>path</key>
+	<string>/afs/</string>
+	<key>re_pattern</key>
+	<string>REGEXGOESHERE</string>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
+</dict> 
+</plist>
