@@ -43,7 +43,7 @@ class AFSFileSearcher(Processor):
 			file = path + '/' + highestver
 			return(file)
 		except OSError:
-			raise ProcessorError('Could not find software matching the regex provided'(path, re_pattern, stderr)
+			raise ProcessorError('Could not find software matching the regex provided'(path, re_pattern, stderr))
 
 	def gettoken():
 	
