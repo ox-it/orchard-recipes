@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Christopher Beard</string>
+      <key>Email</key>
+      <string>christopher.beard at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>cdbeard</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads latest version of StatPlus:mac LE and imports into Munki</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.StatPlus_mac_LE</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>StatPlus_mac_LE</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>unstable</string>
+      </array>  
+      <key>category</key>
+      <string>Scientific</string>
+      <key>description</key>
+      <string>Stats/analysis tool for Excel. Free LE version which can be licensed to Professional version.</string>
+      <key>developer</key>
+      <string>AnalystSoft</string>
+      <key>display_name</key>
+      <string>StatPlus:mac LE</string>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+    </dict>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.2.0</string>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.download.StatPlus_mac_LE</string>
+  <key>Process</key>
+  <array>
+    <!-- Extract version -->
+    <dict>
+      <key>Processor</key>
+      <string>AppDmgVersioner</string>
+      <key>Arguments</key>
+      <dict>
+        <key>dmg_path</key>
+        <string>%RECIPE_CACHE_DIR%/%NAME%/StatPlusMacLE.dmg</string>
+      </dict>
+    </dict>
+		<!-- Add version to pkginfo -->
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>  
+		<!-- Import into munki -->
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%dmg_path%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict> 
+  </array>   
+</dict>
+</plist>
