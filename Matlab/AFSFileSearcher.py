@@ -47,8 +47,8 @@ class AFSFileSearcher(Processor):
 
 	def gettoken(self):
 	
-		keytabname = os.environ.get("keytabname", None)
-		principal = os.environ.get("principal",None)
+		keytabname = os.environ.get("KEYTABNAME", None)
+		principal = os.environ.get("PRINCIPAL",None)
 
 		subprocess.call(["kinit","-t",keytabname,principal])
 		subprocess.call(["aklog"])
