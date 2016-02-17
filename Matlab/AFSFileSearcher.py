@@ -35,7 +35,7 @@ class AFSFileSearcher(Processor):
 
 		try:
 			software = os.listdir(path)
-			highestver='0'
+			highestver = software[0]
 		
 			for x in range(len(software)):
 					if re.search(re_pattern,software[x]) and LooseVersion(software[x]) > LooseVersion(highestver):
