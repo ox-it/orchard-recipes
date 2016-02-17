@@ -35,7 +35,7 @@
   <array>
     <dict>
       <key>Processor</key>
-      <string>AFSFileSearcher</string>
+      <string>uk.ac.ox.orchard.SharedProcessors/AFSFileSearcher</string>
       <key>Arguments</key>
       <dict>
       	<key>path</key>

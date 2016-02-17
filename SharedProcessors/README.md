@@ -1,3 +1,6 @@
+
+=AFSFileSearcher=
+
 In order for the AFS Processor to work environement variables will need to be set for the following:
 KEYTABNAME
 PRINCIPAL

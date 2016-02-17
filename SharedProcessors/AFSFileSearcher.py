@@ -1,4 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+#
+# Copyright 2016 University of Oxford
+#
+# Author
+# Name: Gary Ballantine
+# Email: gary.ballantine at it.ox.ac.uk
+# GitHub: AltMeta
 
 import os, subprocess, re
 from distutils.version import LooseVersion
