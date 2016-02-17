@@ -43,20 +43,18 @@ class AFSFileSearcher(Processor):
 			file = path + '/' + highestver
 			return(file)
 		except OSError:
-			raise ProcessorError('Could not find software matching the regex provided'(path, re_pattern, stderr))
+			raise ProcessorError('Error Messages will get better with time'(path, re_pattern))
 
-	def gettoken():
+	def gettoken(self):
 	
 		keytabname = os.environ.get("keytabname", None)
 		principal = os.environ.get("principal",None)
 
 		subprocess.call(["kinit","-t",keytabname,principal])
 		subprocess.call(["aklog"])
-		subprocess.call(["klist"])
 
-
-	def killtoken():
-		subprocess.call(["unlog"])
+	def killtoken(self):
+		subprocess.call(["unlog"], shell=True)
 		subprocess.call(["kdestroy"], shell=True)
 
 
@@ -67,9 +65,9 @@ class AFSFileSearcher(Processor):
 		if 're_pattern' in self.env:
 			re_pattern = self.env['re_pattern']
 
-		self.gettoken
+		self.gettoken()
 		self.env['file'] = self.get_path_and_search(path, re_pattern)
-		self.killtoken
+		self.killtoken()
 		self.output(file)
 
 
