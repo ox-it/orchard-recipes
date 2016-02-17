@@ -30,12 +30,12 @@
     <dict>
       <key>catalogs</key>
       <array>
-        <string>unstable</string>
+        <string>testing</string>
       </array>  
       <key>category</key>
       <string>Scientific</string>
       <key>description</key>
-      <string>Stats/analysis tool for Excel. Free LE version which can be licensed to Professional version.</string>
+      <string>Statistics analysis tool, primarly for Microsoft Excel but can be run standalone. Free LE version which can be licensed to Professional version.</string>
       <key>developer</key>
       <string>AnalystSoft</string>
       <key>display_name</key>
