@@ -25,7 +25,7 @@
   	<key>Name</key>
 	<string>MatLab</string>
 	<key>PATH</key>
-	<string>/afs/path</string>
+	<string>/afs/ox.ac.uk/vhost/downloads.oucs.ox.ac.uk/docroot/itss/sls/Matlab</string>
 	<key>SEARCH_PATTERN</key>
 	<string>Mac</string>
   </dict>
