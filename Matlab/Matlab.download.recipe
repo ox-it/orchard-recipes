@@ -22,9 +22,15 @@
   <string>uk.ac.ox.orchard.download.Matlab</string>
   <key>Input</key>
   <dict>
+  	<key>Name</key>
+	<string>MatLab</string>
+	<key>PATH</key>
+	<string>/afs/path</string>
+	<key>SEARCH_PATTERN</key>
+	<string>Mac</string>
   </dict>
   <key>MinimumVersion</key>
-  <string></string>
+  <string>0.4.2</string>
   <key>Process</key>
   <array>
     <dict>
@@ -33,13 +39,10 @@
       <key>Arguments</key>
       <dict>
       	<key>path</key>
-	<string>/afs/</string>
+	<string>%PATH%</string>
 	<key>re_pattern</key>
-	<string>REGEXGOESHERE</string>
-    </dict>
-    <dict>
-      <key>Processor</key>
-      <string>EndOfCheckPhase</string>
+	<string>%SEARCH_PATTERN%</string>
+      </dict>
     </dict>
   </array>
 </dict> 

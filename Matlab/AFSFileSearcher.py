@@ -61,10 +61,10 @@ class AFSFileSearcher(Processor):
 
 
 	def main(self):
-		gettoken()
+		self.gettoken
 		self.env['file'] = self.get_path_and_search(path, re_pattern)
-		killtoken()
-		self.ouput('FILE' % self.ev['file'])
+		self.killtoken
+		self.output['file']
 
 
 if __name__ == '__main__':
