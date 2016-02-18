@@ -6,12 +6,12 @@
 # Name: Gary Ballantine
 # Email: gary.ballantine at it.ox.ac.uk
 # GitHub: AltMeta
-# Distributed under terms of the MIT license.
 
 """
 De-authenticates AFS via unlog and kdestroy
 """
-import 
+
+import subprocess
 from autopkglib import Processor, ProcessorError
 
 __all__ = ["AFSDeauth"]

@@ -7,11 +7,12 @@
 # Name: Gary Ballantine
 # Email: gary.ballantine at it.ox.ac.uk
 # GitHub: AltMeta
-# Distributed under terms of the MIT license.
 
 """
-
+list files in the specified path, performs regex and Version checking
+The highest version is returned as file
 """
+
 import re, os
 from distutils.version import LooseVersion
 from autopkglib import Processor, ProcessorError

@@ -9,19 +9,16 @@
 # Distributed under terms of the MIT license.
 
 """
-
+Authorises AFS via shelling out and using a kerberos keytab
+and performing aklog
 """
+
 import os, subprocess
 from autopkglib import Processor, ProcessorError
 
 __all__ = ["AFSAuth"]
 
 class AFSAuth(Processor):
-	
-	'''
-	Authorises AFS via shelling out and using a kerberos keytab
-	and performing aklog
-	'''
 
 	input_variables = {
 		'auth_method': {
