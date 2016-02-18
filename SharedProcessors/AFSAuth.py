@@ -22,10 +22,18 @@ class AFSAuth(Processor):
 
 	input_variables = {
 		'auth_method': {
-				 'description': 'keytab is the only option atm'
-				 'required': False.
+				 'description': 'keytab is the only option atm',
+				 'required': False,
+				
 			       },
 	}
+
+	output_variables = {
+	              'test': {
+			         'description': 'for testing',
+				 'required': False,
+                              },
+        }
 
 	def gettoken(self):
 
