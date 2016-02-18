@@ -1,22 +1,25 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
 #
-# Copyright 2016 University of Oxford
-#
+# Copyright © University of Oxford
 # Author
 # Name: Gary Ballantine
 # Email: gary.ballantine at it.ox.ac.uk
 # GitHub: AltMeta
+# Distributed under terms of the MIT license.
 
-import os, subprocess, re
+"""
+
+"""
+import re, os
 from distutils.version import LooseVersion
-
-
 from autopkglib import Processor, ProcessorError
 
-__all__ = ["AFSFileSearcher"]
+__all__ = ["FSFileProvider"]
 
-class AFSFileSearcher(Processor):
-	'''Provides path to the file that needs packaged'''
+class FSFileProvider(Processor):
+
 
 	input_variables = {
 		're_pattern': {
@@ -36,8 +39,6 @@ class AFSFileSearcher(Processor):
 			},
 	}
 
-	
-
 	def get_path_and_search(self, path, re_pattern):
 
 		try:
@@ -52,19 +53,6 @@ class AFSFileSearcher(Processor):
 		except OSError:
 			raise ProcessorError('Error Messages will get better with time'(path, re_pattern))
 
-	def gettoken(self):
-	
-		keytabname = os.environ.get("KEYTABNAME", None)
-		principal = os.environ.get("PRINCIPAL",None)
-
-		subprocess.call(["kinit","-t",keytabname,principal])
-		subprocess.call(["aklog"])
-
-	def killtoken(self):
-		subprocess.call(["unlog"], shell=True)
-		subprocess.call(["kdestroy"], shell=True)
-
-
 	def main(self):
 
 		if 'path' in self.env:
@@ -72,11 +60,8 @@ class AFSFileSearcher(Processor):
 		if 're_pattern' in self.env:
 			re_pattern = self.env['re_pattern']
 
-		self.gettoken()
 		self.env['file'] = self.get_path_and_search(path, re_pattern)
-		self.killtoken()
 		self.output(file)
 
-
 if __name__ == '__main__':
-	PROCESSOR = AFSFileSearcher()
+	PROCESSOR = FSFileProvider()
