@@ -30,39 +30,65 @@ class FSFileProvider(Processor):
 			},
 		'path': {
 			      'description': 'provide the afs path',
-			      'required': True
+			      'required': True,
 			},
+		'result_output_var_name': {
+			      'description': 'desc',
+			      'required': False,
+                              'default': 'match',
+		        },
 	}
 
 	output_variables = {
-		'file': {
-			     'file': 'file to import',
-			},
-	}
+		'result_output_var_name': {
+			     'description': 'desc',
+		},
+	}	
 
 	def get_path_and_search(self, path, re_pattern):
+
 
 		try:
 			software = os.listdir(path)
 			highestver = software[0]
-		
+
+
 			for x in range(len(software)):
 					if re.search(re_pattern,software[x]) and LooseVersion(software[x]) > LooseVersion(highestver):
 						highestver = software[x]
-			file = path + '/' + highestver
-			return(file)
 		except OSError:
 			raise ProcessorError('Error Messages will get better with time'(path, re_pattern))
 
+		try:
+			re_pattern = re.compile(re_pattern)
+			match = re_pattern.search(highestver)
+
+			return (match.group(match.lastindex or 0), match.groupdict())
+		except:
+			pass
+
+
 	def main(self):
+
+		output_var_name = self.env['result_output_var_name']
+		
 
 		if 'path' in self.env:
 			path = self.env['path']
 		if 're_pattern' in self.env:
 			re_pattern = self.env['re_pattern']
 
-		self.env['file'] = self.get_path_and_search(path, re_pattern)
-		self.output(file)
+		groupmatch, groupdict = self.get_path_and_search(path,re_pattern)
+		
+	        if output_var_name not in groupdict.keys():
+			groupdict[output_var_name] = groupmatch
+
+		self.output_variables = {}
+		for key in groupdict.keys():
+			self.env[key] = groupdict[key]
+			self.output('Found matching text (%s): %s' % (key, self.env[key], ))
+			self.output_variables[key] = {
+				'description': 'Matched regular expression group'}
 
 if __name__ == '__main__':
 	PROCESSOR = FSFileProvider()
