@@ -20,7 +20,7 @@ class AFSDeauth(Processor):
 	
 	input_variables = {
 		'auth_method': {
-				 'description': 'keytab is the only option atm',
+				 'description': 'keytab is the only option at the moment',
 				 'required': False,
 			       },
 	}
