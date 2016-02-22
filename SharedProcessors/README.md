@@ -22,3 +22,12 @@ The AFSDeauth processor performs deauthorization by performing unlog and kdestor
 
 ## FSFileProvider
 
+
+The FSFileProvider processor requires 2 input variables:
+• re_pattern
+* path
+
+The path variable should be set as a directory that contains the software to be packaged.
+This directory is then listed and the regex provided in re_pattern is then performed on this list.
+
+Items that match this list are then compared and the newest release is returned.
