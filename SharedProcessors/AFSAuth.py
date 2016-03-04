@@ -72,9 +72,7 @@ class AFSAuth(Processor):
 	def main(self):
 		auth_method = self.env['auth_method']
                 if auth_method != 'keytab':
-                    raise
-                       ProcessorError('Unsupported authentication method: %s'
-                                       % (auth_method) )
+                    raise ProcessorError('Unsupported authentication method: %s' % (auth_method) )
 		self.gettoken()
 
 if __name__ == '__main__':
