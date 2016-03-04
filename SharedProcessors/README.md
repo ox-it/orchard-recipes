@@ -7,6 +7,10 @@
 The AFSAuth prcoessor performs AFS authentication by obtaining an AFS token.
 This function is performed by spawning shell processes.
 
+There are two optional input variables:
+*`auth_method`: the authentication method, defaulting to the only supported option keytab
+*`aklog_path`: the path to aklog, default /usr/local/bin/aklog
+
 In order to prevent the need of multiple overrides in development environments the following environment variables need to be set:
 * KEYTABNAME
 * PRINCIPAL
