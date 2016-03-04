@@ -28,7 +28,7 @@ class AFSAuth(Processor):
 				
 			       },
 		'aklog_path': {
-				 'description': 'Path to aklog binary'
+				 'description': 'Path to aklog binary',
 				 'required': False,
 				 'default': '/usr/local/bin/aklog',
 			       },
