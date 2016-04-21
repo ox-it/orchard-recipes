@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ben Goodstein</string>
+      <key>Email</key>
+      <string>ben.goodstein at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>fuzzylogiq</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the latest update for HyperDeck from Blackmagic</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.HyperDeck</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>HyperDeck</string>
+    <key>PRODUCT_NAME_PATTERN</key>
+    <string>^HyperDeck (?P&lt;version&gt;\d+\.\d+(\.\d+)?) Update$</string>
+    <key>REG_CITY</key>
+    <string>Oxford</string>
+    <key>REG_EMAIL</key>
+    <string>nsms@it.ox.ac.uk</string>
+    <key>REG_FIRSTNAME</key>
+    <string>Orchard</string>
+    <key>REG_LASTNAME</key>
+    <string>Orchard</string>
+    <key>REG_PHONE</key>
+    <string>01865612345</string>
+    <key>REG_STATE</key>
+    <string>England</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.2.0</string>
+  <key>Process</key>
+  <array>
+    <dict>
+			<key>Processor</key>
+			<string>com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>product_name_pattern</key>
+				<string>%PRODUCT_NAME_PATTERN%</string>
+				<key>product_name</key>
+				<string>HyperDeck</string>
+				<key>registration_info</key>
+				<dict>
+					<key>firstname</key>
+					<string>%REG_FIRSTNAME%</string>
+					<key>lastname</key>
+					<string>%REG_LASTNAME%</string>
+					<key>email</key>
+					<string>%REG_EMAIL%</string>
+					<key>phone</key>
+					<string>%REG_PHONE%</string>
+					<key>city</key>
+					<string>%REG_CITY%</string>
+					<key>state</key>
+					<string>%REG_STATE%</string>
+				</dict>
+			</dict> 
+		</dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>filename</key>
+        <string>%NAME%-%version%.zip</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
+</dict> 
+</plist>
