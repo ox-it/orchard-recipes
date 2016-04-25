@@ -41,7 +41,7 @@
         <key>url</key>
         <string>%DOWNLOAD_PAGE%</string>
         <key>re_pattern</key>
-        <string><![CDATA[OS X %OSX_MIN_VERSION% and later.+?>Version: (?P<version>\d+\.\d+).+?href="(?P<url>http://mirror\.oxygenxml\.com.+?oxygen\.(?P<ext>.+?))"]]></string>
+        <string><![CDATA[OS X %OSX_MIN_VERSION% and later.+?>Version: (?P<version>[\d\.]+).+?href="(?P<url>http://mirror\.oxygenxml\.com.+?oxygen\.(?P<ext>.+?))"]]></string>
             <key>re_flags</key>
             <array>
               <string>MULTILINE</string>
