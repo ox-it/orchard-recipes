@@ -27,7 +27,7 @@
     <key>BASE_URL</key>
     <string>http://bluej.org</string>
     <key>SEARCH_PATTERN</key>
-    <string>download/files/BlueJ-\d+\.zip</string>
+    <string>download/files/BlueJ-mac-(?!legacy).+\.zip</string>
   </dict>
   <key>MinimumVersion</key>
   <string>0.2.0</string>
