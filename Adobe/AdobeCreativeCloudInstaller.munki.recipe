@@ -25,7 +25,7 @@
       <key>MUNKI_REPO_SUBDIR</key>
       <string>Adobe_CC_2015</string>
       <key>NAME</key>
-      <string>Adobe_Creative_Cloud_Installer</string>
+      <string>Creative Cloud Installer</string>
       <key>pkginfo</key>
       <dict>
         <key>catalogs</key>
@@ -36,10 +36,12 @@
         <string>Creative Cloud</string>
         <key>description</key>
         <string>This updates the Creative Cloud app that runs in your taskbar if you have Adobe Creative Cloud apps installed.</string>
+        <key>developer</key>
+        <string>Adobe</string>
         <key>display_name</key>
-        <string>Adobe Creative Cloud Installer</string>
+        <string>Creative Cloud Installer</string>
         <key>name</key>
-        <string>%NAME%</string>
+        <string>Creative_Cloud_Installer</string>
         <key>unattended_install</key>
         <true/>
       </dict>
