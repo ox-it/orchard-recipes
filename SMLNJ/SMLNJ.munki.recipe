@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ian Collier</string>
+      <key>Email</key>
+      <string>ian.collier at cs.ox.ac.uk</string>
+      <key>Github</key>
+      <string>imc0</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the current release version of Standard ML of New Jersey and imports into Munki</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.SMLNJ</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>SMLNJ</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>DISPLAY_NAME</key>
+    <string>Standard ML of New Jersey</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+      <key>minimum_os_version</key><!-- taken from download page -->
+      <string>10.6</string>
+      <key>developer</key>
+      <string>the SML/NJ Fellowship</string>
+      <key>display_name</key>
+      <string>%DISPLAY_NAME%</string>
+      <key>category</key>
+      <string>Software Development</string>
+      <key>description</key>
+      <string>Standard ML of New Jersey (abbreviated SML/NJ) is a compiler for the Standard ML '97 programming language with associated libraries, tools and documentation.  Standard ML is a safe, modular, strict, functional, polymorphic programming language with compile-time type checking and type inference.</string>
+    </dict>
+  </dict>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.download.SMLNJ</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiPkginfoMerger</string>
+      <key>Arguments</key>
+      <dict>
+        <key>additional_pkginfo</key>
+        <dict>
+          <key>version</key>
+          <string>%version%</string>
+          <key>postinstall_script</key>
+          <string>#!/bin/sh
+ cd /usr/local/bin &amp;&amp; ln -sf ../smlnj/bin/* .
+          </string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
