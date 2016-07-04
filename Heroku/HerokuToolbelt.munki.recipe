@@ -29,7 +29,7 @@
       <key>MUNKI_CATEGORY</key>
       <string>Software Development</string>
       <key>MUNKI_REPO_SUBDIR</key>
-      <string>Heroku</string>
+      <string>%NAME%</string>
       <key>pkginfo</key>
       <dict>
         <key>catalogs</key>
