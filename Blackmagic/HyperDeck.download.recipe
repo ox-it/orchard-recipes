@@ -27,17 +27,17 @@
     <key>PRODUCT_NAME_PATTERN</key>
     <string>^HyperDeck (?P&lt;version&gt;\d+\.\d+(\.\d+)?) Update$</string>
     <key>REG_CITY</key>
-    <string>Oxford</string>
+    <string>override this!</string>
     <key>REG_EMAIL</key>
-    <string>nsms@it.ox.ac.uk</string>
+    <string>override this!</string>
     <key>REG_FIRSTNAME</key>
-    <string>Orchard</string>
+    <string>override this!</string>
     <key>REG_LASTNAME</key>
-    <string>Orchard</string>
+    <string>override this!</string>
     <key>REG_PHONE</key>
-    <string>01865612345</string>
+    <string>override this!</string>
     <key>REG_STATE</key>
-    <string>England</string>
+    <string>override this!</string>
   </dict>
   <key>MinimumVersion</key>
   <string>0.2.0</string>
