@@ -50,7 +50,6 @@
   <string>0.2.0</string>
   <key>ParentRecipe</key>
   <string>uk.ac.ox.orchard.download.StatPlus_mac_LE</string>
-  
   <key>Process</key>
   <array>
     <dict>
