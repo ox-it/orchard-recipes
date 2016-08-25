@@ -42,6 +42,10 @@
         <string>mtr</string>
         <key>name</key>
         <string>%NAME%</string>
+        <key>minimum_os_version</key>
+        <string>%OSX_VER%.0</string>
+        <key>maximum_os_version</key>
+        <string>%OSX_VER%.99</string>
         <key>unattended_install</key>
         <true/>
       </dict>
@@ -52,20 +56,6 @@
     <string>uk.ac.ox.orchard.download.mtr</string>
     <key>Process</key>
     <array>
-      <dict>
-        <key>Processor</key>
-        <string>MunkiPkginfoMerger</string>
-        <key>Arguments</key>
-        <dict>
-          <key>additional_pkginfo</key>
-          <dict>
-            <key>minimum_os_version</key>
-            <string>%OSX_VER%.0</string>
-            <key>maximum_os_version</key>
-            <string>%OSX_VER%.99</string>
-          </dict>
-        </dict>
-      </dict>
       <dict>
         <key>Processor</key>
         <string>MunkiImporter</string>
