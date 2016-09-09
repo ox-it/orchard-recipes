@@ -17,19 +17,32 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>LightworksURLProvider</string>
+            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
+               <key>url</key>
+               <string><![CDATA[https://www.lwks.com/index.php?option=com_lwks&view=download&Itemid=206]]></string>
+               <key>re_pattern</key>
+               <string><![CDATA[Lightworks for Mac OS X</h.*<strong>Latest release:</strong>.*<strong>(.*)</strong>.*<span>Release date:</span>]]></string>
+               <key>result_output_var_name</key>
+               <string>LIGHTWORKS_VERSION</string>
+               <key>re_flags</key>
+               <array>
+                   <string>MULTILINE</string>
+                   <string>DOTALL</string>
+               </array>
 	    </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
             	<key>url</key>
-            	<string>%url%</string>
+            	<string><![CDATA[https://www.lwks.com/index.php?option=com_docman&task=doc_download&gid=210]]></string>
+            	<key>filename</key>
+            	<string>lightworks-download.dmg</string>
             </dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
         </dict>
         <dict>
             <key>Processor</key>
