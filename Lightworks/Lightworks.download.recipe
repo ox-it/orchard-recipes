@@ -25,7 +25,7 @@
                <key>re_pattern</key>
                <string><![CDATA[Lightworks for Mac OS X</h.*<strong>Latest release:</strong>.*<strong>(.*)</strong>.*<span>Release date:</span>]]></string>
                <key>result_output_var_name</key>
-               <string>LIGHTWORKS_VERSION</string>
+               <string>version</string>
                <key>re_flags</key>
                <array>
                    <string>MULTILINE</string>
@@ -41,7 +41,7 @@
             	<key>url</key>
             	<string><![CDATA[https://www.lwks.com/index.php?option=com_docman&task=doc_download&gid=210]]></string>
             	<key>filename</key>
-            	<string>lightworks-download.dmg</string>
+            	<string>lightworks-download-%version%.dmg</string>
             </dict>
         </dict>
         <dict>

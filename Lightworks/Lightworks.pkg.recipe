@@ -49,12 +49,12 @@
       <dict>
         <key>template_path</key>
         <string>PackageInfoTemplate</string>
+        <key>version</key>
+        <string>%version%</string>
         <key>infofile</key>
         <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
         <key>pkgtype</key>
         <string>flat</string>
-        <key>version</key>
-        <string>%LIGHTWORKS_VERSION%</string>
       </dict>
     </dict>
     <dict>
@@ -65,9 +65,7 @@
         <key>pkg_request</key>
         <dict>
           <key>pkgname</key>  
-          <string>%NAME%-%LIGHTWORKS_VERSION%</string>
-          <key>version</key>  
-          <string>%LIGHTWORKS_VERSION%</string>
+          <string>%NAME%-%version%</string>
           <key>id</key>
           <string>com.editshare.lightworks.pkg</string>
           <key>options</key>
