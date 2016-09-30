@@ -13,7 +13,7 @@
         <key>BASE_URL</key>
         <string>http://www.dejal.com</string>
         <key>HOMEPAGE_URL</key>
-        <string>%BASE_URL%/mac/</string>
+        <string>%BASE_URL%/apps/</string>
         <key>DOWNLOAD_URL</key>
         <string>%BASE_URL%/download</string>
 	<key>USER_AGENT</key>
