@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/
+PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ian Collier</string>
+      <key>Email</key>
+      <string>ian.collier at cs.ox.ac.uk</string>
+      <key>Github</key>
+      <string>imc0</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Imports the current release version of fuzz type checker into Munki</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.fuzz</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>fuzz</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>DISPLAY_NAME</key>
+    <string>fuzz type-checker</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+      <key>developer</key>
+      <string>Mike Spivey</string>
+      <key>display_name</key>
+      <string>%DISPLAY_NAME%</string>
+      <key>category</key>
+      <string>Software Development</string>
+      <key>description</key>
+      <string>The fuzz type-checker is a suite containing a LaTeX style for typesetting specifications written in the Z ("zed") formal specification language and a tool to check them for compliance with the Z scope and type rules.</string>
+    </dict>
+  </dict>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.pkg.fuzz</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiPkginfoMerger</string>
+      <key>Arguments</key>
+      <dict>
+        <key>additional_pkginfo</key>
+        <dict>
+          <key>version</key>
+          <string>%version%</string>
+          <key>postinstall_script</key>
+          <string>#!/bin/sh
+          ln -sf ../fuzz/bin/fuzz /usr/local/bin
+          if [ -d /usr/local/texlive/texmf-local/tex ]; then
+            cd /usr/local/texlive/texmf-local
+            mkdir -p tex/latex/local
+            ln -sf ../../../../../fuzz/texmf/tex/fuzz.sty tex/latex/local
+            mkdir -p fonts/source/local
+            cd fonts/source/local
+            ln -sf ../../../../../fuzz/texmf/fonts/source/*.mf .
+            /Library/TeX/texbin/texhash
+          fi
+          </string>
+          <key>postuninstall_script</key>
+          <string>#!/bin/sh
+          texmf=/usr/local/texlive/texmf-local
+          for link in /usr/local/bin/fuzz $texmf/tex/latex/local/fuzz.sty $texmf/fonts/source/local/*.mf; do
+            if [ -h "$link" -a ! -e "$link" ]; then rm -f "$link"; fi
+          done
+          if [ -x /Library/TeX/texbin/texhash ]; then /Library/TeX/texbin/texhash; fi
+          </string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pkg_path%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
