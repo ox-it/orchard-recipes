@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ian Collier</string>
+      <key>Email</key>
+      <string>ian.collier at cs.ox.ac.uk</string>
+      <key>Github</key>
+      <string>imc0</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the current release version of Gluon Scene Builder and imports into Munki</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.SceneBuilder</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>SceneBuilder</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>DISPLAY_NAME</key>
+    <string>Scene Builder</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+      <key>developer</key>
+      <string>Gluon Labs</string>
+      <key>display_name</key>
+      <string>%DISPLAY_NAME%</string>
+      <key>category</key>
+      <string>Software Development</string>
+      <key>description</key>
+      <string>Scene Builder is a visual layout tool that lets users quickly design JavaFX application user interfaces without coding. Users can drag and drop UI components to a work area, modify their properties, apply style sheets, and the FXML code for the layout that they are creating is automatically generated in the background.</string>
+    </dict>
+  </dict>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.download.SceneBuilder</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiPkginfoMerger</string>
+      <key>Arguments</key>
+      <dict>
+        <key>additional_pkginfo</key>
+        <dict>
+          <key>version</key>
+          <string>%version%</string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
