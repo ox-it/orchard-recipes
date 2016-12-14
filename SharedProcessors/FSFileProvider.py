@@ -35,6 +35,11 @@ class FSFileProvider(Processor):
                 'required': False,
                 'default': 'match',
                 },
+            'mangle_dmg_iso_filenames': {
+                'description': 'Currently, the DmgCopier tries to look inside paths ending .dmg or .iso; setting this flag will change the output filename from file.iso to file.i?o and file.dmg to file.d?g which works around this',
+                'required': False,
+                'default': 'False',
+                },
             }
 
     output_variables = {
@@ -75,10 +80,16 @@ class FSFileProvider(Processor):
         if output_var_name not in groupdict.keys():
             groupdict[output_var_name] = groupmatch
 
+        self.output('Mangle: %s' % self.env['mangle_dmg_iso_filenames'])
         self.output_variables = {}
         for key in groupdict.keys():
             self.env[key] = groupdict[key]
             self.output('Found matching text (%s): %s' % (key, self.env[key], ))
+            if self.env['mangle_dmg_iso_filenames'] == True and key == 'file':
+                self.env[key] = re.sub('iso$', 'i?o', self.env[key], flags=re.I)
+                self.env[key] = re.sub('dmg$', 'd?g', self.env[key], flags=re.I)
+                self.output('Updated: matching text (%s): %s' % (key, self.env[key], ))
+
             self.output_variables[key] = {
                     'description': 'Matched regular expression group'}
 
