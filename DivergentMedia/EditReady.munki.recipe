@@ -56,7 +56,9 @@
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
 				<key>dmg_root</key>
-        <string>%RECIPE_CACHE_DIR%/%NAME%/Applications/EditReady.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Applications/EditReady.app</string>
+				<key>dmg_megabytes</key>
+				<string>100</string>
 			</dict>
 			<key>Processor</key>
 			<string>DmgCreator</string>
