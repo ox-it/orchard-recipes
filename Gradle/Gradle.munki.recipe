@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2016</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ian Collier</string>
+      <key>Email</key>
+      <string>ian.collier at cs.ox.ac.uk</string>
+      <key>Github</key>
+      <string>imc0</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Imports the current version of Gradle into Munki</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.Gradle</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>Gradle</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>DISPLAY_NAME</key>
+    <string>%NAME%</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>unattended_install</key>
+      <true/>
+      <key>developer</key>
+      <string>Gradle, Inc.</string>
+      <key>display_name</key>
+      <string>%DISPLAY_NAME%</string>
+      <key>category</key>
+      <string>Software Development</string>
+      <key>description</key>
+      <string>Gradle is an open-source build automation system.  Gradle can automate the building, testing, publishing, deployment and more of software packages or other types of projects such as generated static websites, generated documentation or indeed anything else.</string>
+    </dict>
+  </dict>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.pkg.Gradle</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiPkginfoMerger</string>
+      <key>Arguments</key>
+      <dict>
+        <key>additional_pkginfo</key>
+        <dict>
+          <key>postinstall_script</key>
+          <string>#!/bin/sh
+name=$(echo "%NAME%"|tr A-Z a-z)
+version="%version%"
+ln -s -f "$name-$version" /usr/local/"$name"
+ln -s -f ../"$name"/bin/"$name" /usr/local/bin
+          </string>
+          <key>postuninstall_script</key>
+          <string>#!/bin/sh
+name=$(echo "%NAME%"|tr A-Z a-z)
+if [ -h /usr/local/"$name" -a ! -d /usr/local/"$name" ]; then rm -f /usr/local/"$name";fi
+if [ -h /usr/local/bin/"$name" -a ! -f /usr/local/bin/"$name" ]; then rm -f /usr/local/bin/"$name";fi
+          </string>
+        </dict>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pkg_path%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
