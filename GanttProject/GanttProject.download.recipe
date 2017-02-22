@@ -13,7 +13,7 @@
         <key>BASE_URL</key>
         <string>http://www.ganttproject.biz</string>
         <key>SEARCH_URL</key>
-        <string>%BASE_URL%/download</string>
+        <string>%BASE_URL%/download/free</string>
         <key>SEARCH_PATTERN</key>
         <string>(?P&lt;url&gt;/dl/(?P&lt;version&gt;.*?)/mac)</string>
         <key>USER_AGENT</key>
