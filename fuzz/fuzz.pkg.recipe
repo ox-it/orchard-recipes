@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Attribution</key>
+    <dict>
+      <key>Copyright</key>
+      <string>University of Oxford 2016</string>
+      <key>Author</key>
+      <dict>
+        <key>Name</key>
+        <string>Ian Collier</string>
+        <key>Email</key>
+        <string>ian.collier at cs.ox.ac.uk</string>
+        <key>Github</key>
+        <string>imc0</string>
+      </dict>
+    </dict>
+    <key>Description</key>
+    <string>Builds and packages the current version of the fuzz type checker</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.pkg.fuzz</string>
+    <key>Input</key>
+    <dict>
+      <key>NAME</key>
+      <string>fuzz</string>
+      <key>DESTDIR</key>
+      <string>usr/local/fuzz</string>
+    </dict>
+    <key>ParentRecipe</key>
+    <string>uk.ac.ox.orchard.download.fuzz</string>
+    <key>Process</key>
+    <array>
+      <dict>
+        <key>Processor</key>
+        <string>PkgRootCreator</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pkgroot</key>
+          <string>%RECIPE_CACHE_DIR%/payload</string>
+          <key>pkgdirs</key>
+          <dict>
+            <key>usr</key>
+            <string>0775</string>
+          </dict>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>Unarchiver</string>
+        <key>Arguments</key>
+        <dict>
+          <key>destination_path</key>
+          <string>%RECIPE_CACHE_DIR%/build</string>
+          <key>purge_destination</key>
+          <true/>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>BuildScriptRunner</string>
+        <key>Arguments</key>
+        <dict>
+          <key>script</key>
+          <string>
+          if [ -f %RECIPE_CACHE_DIR%/%NAME%-%version%.pkg ]; then exit 0; fi
+          set -e
+          echo "Building fuzz from source";
+          cd %RECIPE_CACHE_DIR%/build;
+          destdir=/%DESTDIR%;
+          cd fuzz*;
+          perl -i.orig -lpe 's/gawk /awk /g' src/Makefile;
+          perl -i.orig -lpe '$_="/* $_ */" if /EXTERN char \*strncpy/' src/zscan.l;
+          make CPP=/usr/bin/cpp DEFINES="-DDEBUG -DANSI -DASSUME -DPRELUDE=\\\"$destdir/share/fuzzlib\\\"";
+          make test;
+          destdir=%RECIPE_CACHE_DIR%/payload$destdir;
+          echo "Installing fuzz";
+          mkdir -p "$destdir"/{bin,share,texmf/{tex,fonts/source}}
+          make BINDIR="$destdir/bin" LIBDIR="$destdir/share" TEXDIR="$destdir/texmf/tex" MFDIR="$destdir/texmf/fonts/source" install
+          </string>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>PkgCreator</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pkg_request</key>
+          <dict>
+            <key>pkgroot</key>
+            <string>%pkgroot%</string>
+            <key>pkgdir</key>
+            <string>%RECIPE_CACHE_DIR%</string>
+            <key>pkgname</key>
+            <string>%NAME%-%version%</string>
+            <key>pkgtype</key>
+            <string>flat</string>
+            <key>id</key>
+            <string>uk.ac.ox.orchard.pkg.fuzz</string>
+            <key>version</key>
+            <string>%version%</string>
+            <key>chown</key>
+            <array>
+              <dict>
+                <key>path</key>
+                <string>%DESTDIR%</string>
+                <key>user</key>
+                <string>root</string>
+                <key>group</key>
+                <string>admin</string>
+              </dict>
+            </array>
+          </dict>
+        </dict>
+      </dict>
+    </array>
+  </dict> 
+</plist>
+
