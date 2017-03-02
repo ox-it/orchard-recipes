@@ -48,6 +48,16 @@
       <string>Software Development</string>
       <key>description</key>
       <string>FDR analyses programs written in CSP_M, which combines the operators of Hoare's CSP with a functional programming language. It also has support for analysing timed systems, via tock CSP.</string>
+      <key>preinstall_script</key>
+      <string>#!/bin/sh
+# If upgrading from FDR3 don't leave the old FDR3.app folder lying around
+if pkgutil --files uk.ac.ox.orchard.pkg.FDR 2>/dev/null | grep -q Applications/FDR3\\.app/
+then
+    rm -rf /Applications/FDR3.app
+    pkgutil --forget uk.ac.ox.orchard.pkg.FDR
+fi
+exit 0
+      </string>
     </dict>
   </dict>
   <key>ParentRecipe</key>
