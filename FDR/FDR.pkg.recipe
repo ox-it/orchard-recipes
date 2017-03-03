@@ -69,7 +69,7 @@
         <key>Arguments</key>
         <dict>
           <key>source_path</key>
-          <string>%RECIPE_CACHE_DIR%/unpack/*</string>
+          <string>%RECIPE_CACHE_DIR%/unpack/%FDRVER%.app</string>
           <key>destination_path</key>
           <string>%pkgroot%/Applications/%FDRVER%.app/</string>
           <key>overwrite</key>
