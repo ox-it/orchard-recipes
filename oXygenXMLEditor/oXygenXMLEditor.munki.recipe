@@ -46,10 +46,10 @@
         <string>#!/bin/sh
 # New versions of oXygen should not be installed over old versions, so remove
 # the old version first
-if pkgutil --files uk.ac.ox.orchard.pkg.oxygenxmleditor 2>/dev/null | grep -q Applications/Oxygen/
+if pkgutil --files %PKGID% 2>/dev/null | grep -q Applications/Oxygen/
 then
     rm -rf /Applications/Oxygen
-    pkgutil --forget uk.ac.ox.orchard.pkg.oxygenxmleditor
+    pkgutil --forget %PKGID%
 fi
 exit 0
         </string>
