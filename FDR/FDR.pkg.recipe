@@ -26,6 +26,8 @@
       <string>FDR</string>
       <key>FDRVER</key>
       <string>FDR4</string>
+      <key>PKGID</key>
+      <string>uk.ac.ox.orchard.pkg.FDR</string>
     </dict>
     <key>ParentRecipe</key>
     <string>uk.ac.ox.orchard.download.FDR</string>
@@ -94,7 +96,7 @@
             <key>pkgtype</key>
             <string>flat</string>
             <key>id</key>
-            <string>uk.ac.ox.orchard.pkg.FDR</string>
+            <string>%PKGID%</string>
             <key>version</key>
             <string>%version%</string>
             <key>chown</key>
