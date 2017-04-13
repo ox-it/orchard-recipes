@@ -42,6 +42,17 @@
         <string>Oxygen XML Editor</string>
         <key>name</key>
         <string>%NAME%</string>
+        <key>preinstall_script</key>
+        <string>#!/bin/sh
+# New versions of oXygen should not be installed over old versions, so remove
+# the old version first
+if pkgutil --files %PKGID% 2>/dev/null | grep -q Applications/Oxygen/
+then
+    rm -rf /Applications/Oxygen
+    pkgutil --forget %PKGID%
+fi
+exit 0
+        </string>
         <key>unattended_install</key>
         <true/>
       </dict>
