@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Description</key>
+    <string>Creates a pkg containing an updated CrossRef.enz file for EndNoteX5+.</string>
+    <key>Identifier</key>
+    <string>uk.ac.ox.orchard.pkg.EndNote_CrossRef_Connection</string>
+    <key>Input</key>
+    <dict>
+      <key>NAME</key>
+      <string>EndNote_CrossRef_Connection</string>
+      <key>VERSION</key>
+      <string>20170531</string>
+      <key>PKG_ID</key>
+      <string>uk.ac.ox.orchard.pkg.EndNoteCrossRefConnection</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>Process</key>
+    <array>
+      <dict>
+        <key>Processor</key>
+        <string>PkgCreator</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pkg_request</key>
+          <dict>
+            <key>pkgroot</key>
+            <string>%RECIPE_DIR%/payload</string>
+            <key>pkgdir</key>
+            <string>%RECIPE_DIR%/build</string>
+            <key>pkgname</key>
+            <string>%NAME%-%VERSION%</string>
+            <key>id</key>
+            <string>%PKG_ID%</string>
+            <key>version</key>
+            <string>%VERSION%</string>
+            <key>options</key>
+            <string>purge_ds_store</string>
+            <key>chown</key>
+            <array>
+                <dict>
+                    <key>path</key>
+                    <string>Applications/Endnote X8/Connections/CrossRef.enz</string>
+                    <key>user</key>
+                    <string>root</string>
+                    <key>group</key>
+                    <string>admin</string>
+                    <key>mode</key>
+                    <string>0644</string>
+                </dict>
+            </array>
+          </dict>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>
