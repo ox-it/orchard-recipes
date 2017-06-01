@@ -67,6 +67,7 @@
     </array>
     <key>update_for</key>
     <array>
+      <string>EndNoteX7</string>
       <string>EndNoteX8</string>
     </array>
   </dict>
