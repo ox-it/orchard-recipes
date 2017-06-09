@@ -96,7 +96,15 @@ class ErlangURLProvider(Processor):
                              if package[u'os'] == u'Mac OS X ' + target_os]
 
         if get_version == u'latest':
-            url = DOWNLOAD_BASE_URL + filtered_packages[0][u'path']
+            idx=0
+            # Select the latest *DMG* as this is what the of the recipe
+            # rest expects (and there are .tgz links around)
+            # 
+            while idx < len(filtered_packages):
+                url = DOWNLOAD_BASE_URL + filtered_packages[idx][u'path']
+                if re.match('.+\.dmg$', url):
+                    break
+                idx=idx+1
         else:
             try:
                 url = DOWNLOAD_BASE_URL + (package for package in filtered_packages
