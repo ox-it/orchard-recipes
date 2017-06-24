@@ -41,7 +41,7 @@
         <key>url</key>
         <string>%BASE_URL%</string>
         <key>re_pattern</key>
-        <string>Version (?P&lt;version&gt;.*),</string>
+        <string>Version (?P&lt;version&gt;.*?),</string>
       </dict>
     </dict>
      <dict>
