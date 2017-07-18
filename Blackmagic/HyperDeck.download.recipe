@@ -28,6 +28,8 @@
     <string>^HyperDeck (?P&lt;version&gt;\d+\.\d+(\.\d+)?) Update$</string>
     <key>REG_CITY</key>
     <string>override this!</string>
+    <key>REG_COUNTRY</key>
+    <string>override this!</string>
     <key>REG_EMAIL</key>
     <string>override this!</string>
     <key>REG_FIRSTNAME</key>
@@ -64,6 +66,8 @@
 					<string>%REG_PHONE%</string>
 					<key>city</key>
 					<string>%REG_CITY%</string>
+					<key>country</key>
+					<string>%REG_COUNTRY%</string>
 					<key>state</key>
 					<string>%REG_STATE%</string>
 				</dict>
