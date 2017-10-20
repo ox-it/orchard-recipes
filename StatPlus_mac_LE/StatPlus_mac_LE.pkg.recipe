@@ -39,7 +39,7 @@
 					<key>app_path</key>
 					<string>%RECIPE_CACHE_DIR%/%NAME%/*.app</string>
 					<key>pkg_path</key>
-					<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+					<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
 				</dict>
 			</dict>
 			<dict>
