@@ -1,108 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-  <key>Attribution</key>
-  <dict>
-    <key>Copyright</key>
-    <string>University of Oxford 2016</string>
-    <key>Author</key>
-    <dict>
-      <key>Name</key>
-      <string>Christopher Beard</string>
-      <key>Email</key>
-      <string>christopher.beard at it.ox.ac.uk</string>
-      <key>Github</key>
-      <string>cdbeard</string>
-    </dict>
-  </dict>
-  <key>Description</key>
-  <string>Downloads latest version of StatPlus:mac LE and imports into Munki</string>
-  <key>Identifier</key>
-  <string>uk.ac.ox.orchard.munki.StatPlus_mac_LE</string>
-  <key>Input</key>
-  <dict>
-    <key>NAME</key>
-    <string>StatPlus_mac_LE</string>
-    <key>MUNKI_REPO_SUBDIR</key>
-    <string>%NAME%</string>
-    <key>pkginfo</key>
-    <dict>
-      <key>catalogs</key>
-      <array>
-        <string>testing</string>
-      </array>  
-      <key>category</key>
-      <string>Scientific</string>
-      <key>description</key>
-      <string>Statistics analysis tool, primarly for Microsoft Excel but can be run standalone. Free LE version which can be licensed to Professional version.</string>
-      <key>developer</key>
-      <string>AnalystSoft</string>
-      <key>display_name</key>
-      <string>StatPlus:mac LE</string>
-      <key>name</key>
-      <string>%NAME%</string>
-      <key>unattended_install</key>
-      <true/>
-    </dict>
-  </dict>
-  <key>MinimumVersion</key>
-  <string>0.2.0</string>
-  <key>ParentRecipe</key>
-  <string>uk.ac.ox.orchard.download.StatPlus_mac_LE</string>
-  <key>Process</key>
-  <array>
-    <dict>
-      <key>Processor</key>
-      <string>EndOfCheckPhase</string>
-    </dict>
-    <!-- Check code signature -->
-    <dict>
-      <key>Processor</key>
-      <string>CodeSignatureVerifier</string>
-      <key>Arguments</key>
-      <dict>
-        <key>input_path</key>
-        <string>%RECIPE_CACHE_DIR%/%NAME%/StatPlusMacLE.dmg/StatPlus.app</string>
-        <key>requirement</key>
-        <string>anchor apple generic and identifier "com.analystsoft.mst.pro2" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "58ZUUA887T")</string>
-      </dict>
-    </dict>
-    <!-- Extract version -->
-    <dict>
-      <key>Processor</key>
-      <string>AppDmgVersioner</string>
-      <key>Arguments</key>
-      <dict>
-        <key>dmg_path</key>
-        <string>%RECIPE_CACHE_DIR%/%NAME%/StatPlusMacLE.dmg</string>
-      </dict>
-    </dict>
-		<!-- Add version to pkginfo -->
+	<dict>
+		<key>Attribution</key>
 		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-			<key>Arguments</key>
+			<key>Copyright</key>
+			<string>University of Oxford 2016</string>
+			<key>Author</key>
 			<dict>
-				<key>additional_pkginfo</key>
+				<key>Name</key>
+				<string>Christopher Beard</string>
+				<key>Email</key>
+				<string>christopher.beard at it.ox.ac.uk</string>
+				<key>Github</key>
+				<string>cdbeard</string>
+			</dict>
+		</dict>
+		<key>Description</key>
+		<string>Downloads latest version of StatPlus:mac LE and imports into Munki</string>
+		<key>Identifier</key>
+		<string>uk.ac.ox.orchard.munki.StatPlus_mac_LE</string>
+		<key>Input</key>
+		<dict>
+			<key>NAME</key>
+			<string>StatPlus_mac_LE</string>
+			<key>MUNKI_REPO_SUBDIR</key>
+			<string>%NAME%</string>
+			<key>pkginfo</key>
+			<dict>
+				<key>catalogs</key>
+				<array>
+					<string>testing</string>
+				</array>
+				<key>category</key>
+				<string>Scientific</string>
+				<key>description</key>
+				<string>Statistics analysis tool, primarly for Microsoft Excel but can be run standalone. Free LE version which can be licensed to Professional version.</string>
+				<key>developer</key>
+				<string>AnalystSoft</string>
+				<key>display_name</key>
+				<string>StatPlus:mac LE</string>
+				<key>name</key>
+				<string>%NAME%</string>
+				<key>unattended_install</key>
+				<true/>
+			</dict>
+		</dict>
+		<key>MinimumVersion</key>
+		<string>0.2.0</string>
+		<key>ParentRecipe</key>
+		<string>uk.ac.ox.orchard.pkg.StatPlus_mac_LE</string>
+		<key>Process</key>
+		<array>
+			<!-- Import into munki -->
+			<dict>
+				<key>Processor</key>
+				<string>MunkiImporter</string>
+				<key>Arguments</key>
 				<dict>
-					<key>version</key>
-					<string>%version%</string>
+					<key>pkg_path</key>
+					<string>%found_filename%</string>
+					<key>repo_subdirectory</key>
+					<string>%MUNKI_REPO_SUBDIR%</string>
 				</dict>
 			</dict>
-		</dict>  
-		<!-- Import into munki -->
-		<dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%dmg_path%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-		</dict> 
-  </array>   
-</dict>
+		</array>
+	</dict>
 </plist>
