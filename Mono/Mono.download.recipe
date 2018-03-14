@@ -27,7 +27,7 @@
     <key>BASE_URL</key>
     <string>http://www.mono-project.com</string>
     <key>SEARCH_URL</key>
-    <string>%BASE_URL%/download/</string>
+    <string>%BASE_URL%/download/stable</string>
     <key>SEARCH_PATTERN</key>
     <!-- .*"(?P<url>h.*pkg).*32-bit -->
     <string>.*&quot;(?P&lt;url&gt;h.*pkg)</string>
