@@ -25,7 +25,7 @@
     <key>NAME</key>
     <string>Gradle</string>
     <key>BASE_URL</key>
-    <string>https://gradle.org/gradle-download/</string>
+    <string>https://services.gradle.org/distributions</string>
     <key>SEARCH_PATTERN</key>
     <string>"([^"]+-(?P&lt;version&gt;[0-9.]+)-all.zip)"&gt;</string>
   </dict>
@@ -50,7 +50,7 @@
       <key>Arguments</key>
       <dict>
         <key>url</key>
-        <string>%match%</string>
+        <string>https://services.gradle.org%match%</string>
       </dict>
     </dict>
     <dict>
