@@ -47,6 +47,13 @@
 			<dict>
 				<key>Processor</key>
 				<string>Unarchiver</string>
+        <key>Arguments</key>
+        <dict>
+          <key>destination_path</key>
+          <string>%RECIPE_CACHE_DIR%/%NAME%/expanded/</string>
+          <key>purge_destination</key>
+          <true/>
+        </dict>
 			</dict>
 			<!-- Check code signature -->
 			<dict>
@@ -55,9 +62,13 @@
 				<key>Arguments</key>
 				<dict>
 					<key>input_path</key>
-					<string>%RECIPE_CACHE_DIR%/%NAME%/StatPlus.app</string>
+          <string>%RECIPE_CACHE_DIR%/%NAME%/expanded/StatPlus.app</string>
 					<key>requirement</key>
-					<string>anchor apple generic and identifier "com.analystsoft.mst.pro2" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "58ZUUA887T")</string>
+          <string>anchor apple generic and identifier "com.analystsoft.mst.pro2" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "58ZUUA887T")</string>
+          <key>strict_verification</key>
+          <true/>
+          <key>deep_verification</key>
+          <true/>
 				</dict>
 			</dict>
 		</array>
