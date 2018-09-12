@@ -10,13 +10,15 @@
   <dict>
     <key>NAME</key>
     <string>Haskell_Platform</string>
+    <key>EDITION</key> <!-- Core or Full -->
+    <string>Core</string>
     <key>BASE_URL</key>
     <string>https://www.haskell.org</string>
     <key>SEARCH_URL</key>
     <string>%BASE_URL%/platform/mac.html</string>
     <key>SEARCH_PATTERN</key>
-       <!-- (?P<pkgurl>platform\/download\/(?P<version>.*)\/.*\.pkg)</string> -->
-    <string>(?P&lt;pkgurl&gt;platform\/download\/(?P&lt;version&gt;.*)\/.*\.pkg)</string>
+       <!-- (?P<pkgurl>platform\/download\/(?P<version>.*)\/.*?%EDITION%.*?\.pkg) -->
+    <string>(?P&lt;pkgurl&gt;platform\/download\/(?P&lt;version&gt;.*)\/.*?%EDITION%.*?\.pkg)</string>
   </dict>
   <key>Process</key>
   <array>
@@ -37,7 +39,7 @@
       <key>Arguments</key>
       <dict>
         <key>filename</key>
-        <string>%NAME%-%version%.pkg</string>
+        <string>%NAME%-%EDITION%-%version%.pkg</string>
         <key>url</key>
         <string>%BASE_URL%/%pkgurl%</string>
       </dict>
