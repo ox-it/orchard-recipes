@@ -19,14 +19,14 @@
     <key>Description</key>
     <string>Packages the latest version of Google Cloud SDK</string>
     <key>Identifier</key>
-    <string>uk.ac.ox.orchard.pkg.google_cloud_sdk</string>
+    <string>uk.ac.ox.orchard.pkg.Google_Cloud_SDK</string>
     <key>Input</key>
     <dict>
       <key>NAME</key>
-      <string>google_cloud_sdk</string>
+      <string>Google_Cloud_SDK</string>
     </dict>
     <key>ParentRecipe</key>
-    <string>uk.ac.ox.orchard.download.google_cloud_sdk</string>
+    <string>uk.ac.ox.orchard.download.Google_Cloud_SDK</string>
     <key>Process</key>
     <array>
       <dict>
@@ -72,7 +72,7 @@
             <key>pkgtype</key>
             <string>flat</string>
             <key>id</key>
-            <string>uk.ac.ox.orchard.pkg.google-cloud-sdk</string>
+            <string>uk.ac.ox.orchard.pkg.Google-Cloud-SDK</string>
             <key>version</key>
             <string>%version%</string>
             <key>chown</key>

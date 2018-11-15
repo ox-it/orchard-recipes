@@ -19,11 +19,11 @@
   <key>Description</key>
   <string>Downloads the current release version of Google Cloud SDK</string>
   <key>Identifier</key>
-  <string>uk.ac.ox.orchard.download.google_cloud_sdk</string>
+  <string>uk.ac.ox.orchard.download.Google_Cloud_SDK</string>
   <key>Input</key>
   <dict>
     <key>NAME</key>
-    <string>google_cloud_sdk</string>
+    <string>Google_Cloud_SDK</string>
     <key>BASE_URL</key>
     <string>https://cloud.google.com/sdk/docs/quickstart-macos</string>
     <key>SEARCH_PATTERN</key>

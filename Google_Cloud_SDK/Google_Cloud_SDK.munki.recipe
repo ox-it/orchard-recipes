@@ -19,11 +19,11 @@
   <key>Description</key>
   <string>Downloads the current release version of Google Cloud SDK and imports it into Munki</string>
   <key>Identifier</key>
-  <string>uk.ac.ox.orchard.munki.google_cloud_sdk</string>
+  <string>uk.ac.ox.orchard.munki.Google_Cloud_SDK</string>
   <key>Input</key>
   <dict>
     <key>NAME</key>
-    <string>google_cloud_sdk</string>
+    <string>Google_Cloud_SDK</string>
     <key>MUNKI_REPO_SUBDIR</key>
     <string>%NAME%</string>
     <key>DISPLAY_NAME</key>
@@ -49,7 +49,7 @@
     </dict>
   </dict>
   <key>ParentRecipe</key>
-  <string>uk.ac.ox.orchard.pkg.google_cloud_sdk</string>
+  <string>uk.ac.ox.orchard.pkg.Google_Cloud_SDK</string>
   <key>Process</key>
   <array>
     <dict>
