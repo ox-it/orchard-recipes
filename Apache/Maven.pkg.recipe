@@ -3,13 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>Description</key>
-    <string>Packages a the latest version of Apache Ant</string>
+    <string>Packages a the latest version of Apache Maven</string>
     <key>Identifier</key>
     <string>uk.ac.ox.orchard.pkg.apache-maven</string>
     <key>Input</key>
     <dict>
       <key>NAME</key>
-      <string>Apache_Ant</string>
+      <string>Apache_Maven</string>
     </dict>
     <key>ParentRecipe</key>
     <string>uk.ac.ox.orchard.download.apache-maven</string>
