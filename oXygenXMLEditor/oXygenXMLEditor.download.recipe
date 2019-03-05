@@ -25,7 +25,7 @@
     <key>SITE</key>
     <string>https://www.oxygenxml.com</string>
     <key>DOWNLOAD_PAGE</key>
-    <string>%SITE%/xml_editor/download_oxygenxml_editor.html?os=MacOSX</string>
+    <string>https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=MacOSX</string>
     <key>OSX_MIN_VERSION</key>
     <string>10.8</string>
     <key>NAME</key>
@@ -43,7 +43,7 @@
         <key>url</key>
         <string>%DOWNLOAD_PAGE%</string>
         <key>re_pattern</key>
-        <string><![CDATA[OS X %OSX_MIN_VERSION% and later.+?>Version: (?P<version>[\d\.]+).+href='/download_thanks.html\?url=(?P<urlpath>.+?oxygen.dmg)]]></string>
+        <string><![CDATA[OS X %OSX_MIN_VERSION% and later.+?>Version: (?P<version>[\d\.]+).+href='/download_thanks.html\?url=.*(?P<urlpath>/InstData.+?oxygen.dmg)]]></string>
             <key>re_flags</key>
             <array>
               <string>MULTILINE</string>
@@ -57,7 +57,7 @@
       <key>Arguments</key>
       <dict>
         <key>url</key>
-        <string>%urlpath%</string>
+        <string>https://mirror.oxygenxml.com%urlpath%</string>
         <key>filename</key>
         <string>%NAME%-%version%.dmg</string>
       </dict>
