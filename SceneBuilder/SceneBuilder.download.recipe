@@ -27,7 +27,7 @@
     <key>BASE_URL</key>
     <string>https://gluonhq.com/products/scene-builder/</string>
     <key>DOWNLOAD_URL</key>
-    <string>http://gluonhq.com/</string>
+    <string>https://gluonhq.com/</string>
     <key>SEARCH_PATTERN</key>
     <string>The latest version .*? is &lt;strong&gt;(?P&lt;version&gt;[0-9.]+)&lt;.*?Mac OS.*?dl=(?P&lt;dlpath&gt;/.*?)"</string>
   </dict>
