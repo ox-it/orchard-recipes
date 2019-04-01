@@ -5,7 +5,7 @@
   <key>Attribution</key>
   <dict>
     <key>Copyright</key>
-    <string>University of Oxford 2016</string>
+    <string>University of Oxford 2019</string>
     <key>Author</key>
     <dict>
       <key>Name</key>
@@ -25,21 +25,21 @@
     <key>NAME</key>
     <string>SceneBuilder</string>
     <key>BASE_URL</key>
-    <string>http://gluonhq.com/labs/scene-builder/</string>
+    <string>https://gluonhq.com/products/scene-builder/</string>
     <key>DOWNLOAD_URL</key>
-    <string>http://download.gluonhq.com/scenebuilder/</string>
+    <string>https://gluonhq.com/</string>
     <key>SEARCH_PATTERN</key>
-    <string>The latest version .* is &lt;strong&gt;(?P&lt;version&gt;[0-9.]+)&lt;</string>
+    <string>The latest version .*? is &lt;strong&gt;(?P&lt;version&gt;[0-9.]+)&lt;.*?Mac OS.*?dl=(?P&lt;dlpath&gt;/.*?)"</string>
   </dict>
   <key>MinimumVersion</key>
   <string>0.2.9</string>
   <!-- Download process: the link on the page is
-       http://gluonhq.com/download/scene-builder-mac/
-       which redirects the client to
-       http://download.gluonhq.com/scenebuilder/8.2.0/install/mac/SceneBuilder-8.2.0.dmg
-       but their server doesn't seem to redirect if the client is curl, so
-       instead find out the version number and go directly to the known URL.
-       Obviously this will break if they ever change it. -->
+       https://gluonhq.com/products/scene-builder/thanks/?dl=/download/scene-builder-VER-mac/
+       which uses JavaScript to redirect the client to a URL which is
+       https://gluonhq.com plus whatever was in the dl parameter. This is then
+       a redirect to the real location.  Because it's a redirect, we have to
+       tell curl what name to save the file as.
+   -->
   <key>Process</key>
   <array>
     <dict>
@@ -51,6 +51,10 @@
         <string>%BASE_URL%</string>
         <key>re_pattern</key>
         <string>%SEARCH_PATTERN%</string>
+        <key>re_flags</key>
+        <array>
+          <string>DOTALL</string>
+        </array>
       </dict>
     </dict>
     <dict>
@@ -59,7 +63,9 @@
       <key>Arguments</key>
       <dict>
         <key>url</key>
-        <string>%DOWNLOAD_URL%%version%/install/mac/SceneBuilder-%version%.dmg</string>
+        <string>%DOWNLOAD_URL%%dlpath%</string>
+        <key>filename</key>
+        <string>%NAME%-%version%.pkg</string>
       </dict>
     </dict>
     <dict>
