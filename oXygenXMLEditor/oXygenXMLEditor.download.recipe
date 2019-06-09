@@ -43,7 +43,7 @@
         <key>url</key>
         <string>%DOWNLOAD_PAGE%</string>
         <key>re_pattern</key>
-        <string><![CDATA[OS X %OSX_MIN_VERSION% and later.+?>Version: (?P<version>[\d\.]+).+href='/download_thanks.html\?url=.*(?P<urlpath>/InstData.+?oxygen.dmg)]]></string>
+        <string><![CDATA[OS X %OSX_MIN_VERSION% and later.+?>Version: (?P<version>[\d\.]+).+href='/download_thanks.html\?url=.*(?P<urlpath>/InstData.+oxygen-openjdk.dmg)]]></string>
             <key>re_flags</key>
             <array>
               <string>MULTILINE</string>
