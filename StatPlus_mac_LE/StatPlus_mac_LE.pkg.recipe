@@ -26,7 +26,7 @@
 			<string>StatPlus_mac_LE</string>
 		</dict>
 		<key>MinimumVersion</key>
-		<string>0.2.0</string>
+		<string>1.0.0</string>
 		<key>ParentRecipe</key>
 		<string>uk.ac.ox.orchard.download.StatPlus_mac_LE</string>
 		<key>Process</key>
