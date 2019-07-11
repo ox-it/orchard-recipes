@@ -43,15 +43,15 @@
       <string>URLTextSearcher</string>
       <key>Arguments</key>
       <dict>
-      	<key>url</key>
-	<string>%SEARCH_URL%</string>
-	<key>re_pattern</key>
-	<string>%SEARCH_PATTERN%</string>
-	<key>request_headers</key>
-	<dict>
-	  <key>user-agent</key>
-	  <string>%USER_AGENT%</string>
-	</dict>
+        <key>url</key>
+        <string>%SEARCH_URL%</string>
+        <key>re_pattern</key>
+        <string>%SEARCH_PATTERN%</string>
+        <key>request_headers</key>
+        <dict>
+          <key>user-agent</key>
+          <string>%USER_AGENT%</string>
+        </dict>
       </dict>
     </dict>
     <dict>
@@ -60,12 +60,12 @@
       <key>Arguments</key>
       <dict>
         <key>request_headers</key>
-	<dict>
-	  <key>user-agent</key>
-	  <string>%USER_AGENT%</string>
-	</dict>
-	<key>url</key>
-	<string>%url%</string>
+        <dict>
+          <key>user-agent</key>
+          <string>%USER_AGENT%</string>
+        </dict>
+        <key>url</key>
+        <string>%url%</string>
       </dict>
     </dict>
     <dict>
@@ -73,5 +73,5 @@
       <string>EndOfCheckPhase</string>
     </dict>
   </array>
-</dict> 
+</dict>
 </plist>
