@@ -22,6 +22,12 @@
     <string>uk.ac.ox.orchard.munki.Mono</string>
     <key>Input</key>
     <dict>
+      <!--Please choose between Visual or Stable
+      We recommend the Visual Studio channel if you're using Visual Studio for Mac
+      since the stability of Visual Studio for Mac is only guaranteed
+      with the Visual Studio channel releases.-->
+      <key>CHANNEL</key>
+      <string>Visual</string>
       <key>MUNKI_REPO_SUBDIR</key>
       <string>%NAME%</string>
       <key>NAME</key>
