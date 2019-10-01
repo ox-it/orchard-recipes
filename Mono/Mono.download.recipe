@@ -25,12 +25,17 @@
     <key>NAME</key>
     <string>Mono</string>
     <key>BASE_URL</key>
-    <string>http://www.mono-project.com</string>
+    <string>https://www.mono-project.com</string>
+    <!--Please choose between Visual or Stable
+    We recommend the Visual Studio channel if you're using Visual Studio for Mac
+    since the stability of Visual Studio for Mac is only guaranteed
+    with the Visual Studio channel releases.-->
+    <key>CHANNEL</key>
+    <string>Visual</string>
     <key>SEARCH_URL</key>
     <string>%BASE_URL%/download/stable</string>
     <key>SEARCH_PATTERN</key>
-    <!-- .*"(?P<url>h.*pkg).*32-bit -->
-    <string>.*&quot;(?P&lt;url&gt;h.*pkg)</string>
+    <string>(https.*\.pkg).*%CHANNEL%</string>
     <key>USER_AGENT</key>
     <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
   </dict>
@@ -43,15 +48,15 @@
       <string>URLTextSearcher</string>
       <key>Arguments</key>
       <dict>
-      	<key>url</key>
-	<string>%SEARCH_URL%</string>
-	<key>re_pattern</key>
-	<string>%SEARCH_PATTERN%</string>
-	<key>request_headers</key>
-	<dict>
-	  <key>user-agent</key>
-	  <string>%USER_AGENT%</string>
-	</dict>
+        <key>url</key>
+        <string>%SEARCH_URL%</string>
+        <key>re_pattern</key>
+        <string>%SEARCH_PATTERN%</string>
+        <key>request_headers</key>
+        <dict>
+          <key>user-agent</key>
+          <string>%USER_AGENT%</string>
+        </dict>
       </dict>
     </dict>
     <dict>
@@ -60,18 +65,33 @@
       <key>Arguments</key>
       <dict>
         <key>request_headers</key>
-	<dict>
-	  <key>user-agent</key>
-	  <string>%USER_AGENT%</string>
-	</dict>
-	<key>url</key>
-	<string>%url%</string>
+        <dict>
+          <key>user-agent</key>
+          <string>%USER_AGENT%</string>
+        </dict>
+        <key>url</key>
+        <string>%match%</string>
       </dict>
     </dict>
     <dict>
       <key>Processor</key>
       <string>EndOfCheckPhase</string>
     </dict>
+    <dict>
+      <key>Processor</key>
+      <string>CodeSignatureVerifier</string>
+      <key>Arguments</key>
+      <dict>
+        <key>input_path</key>
+        <string>%pathname%</string>
+        <key>expected_authority_names</key>
+        <array>
+          <string>Developer ID Installer: Xamarin Inc (7V723M9SQ5)</string>
+          <string>Developer ID Certification Authority</string>
+          <string>Apple Root CA</string>
+        </array>
+      </dict>
+    </dict>
   </array>
-</dict> 
+</dict>
 </plist>

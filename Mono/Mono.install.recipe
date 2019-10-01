@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads the current release version of MonoFramework and installs it.</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.install.Mono</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>Mono</string>
+    <!--Please choose between Visual or Stable
+    We recommend the Visual Studio channel if you're using Visual Studio for Mac
+    since the stability of Visual Studio for Mac is only guaranteed
+    with the Visual Studio channel releases.-->
+    <key>CHANNEL</key>
+    <string>Visual</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.4.0</string>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.download.Mono</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>Installer</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
