@@ -22,6 +22,12 @@
     <string>uk.ac.ox.orchard.munki.Mono</string>
     <key>Input</key>
     <dict>
+      <!--Please choose between Visual or Stable
+      We recommend the Visual Studio channel if you're using Visual Studio for Mac
+      since the stability of Visual Studio for Mac is only guaranteed
+      with the Visual Studio channel releases.-->
+      <key>CHANNEL</key>
+      <string>Visual</string>
       <key>MUNKI_REPO_SUBDIR</key>
       <string>%NAME%</string>
       <key>NAME</key>
@@ -37,8 +43,8 @@
         <key>description</key>
         <string>Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime. A growing family of solutions and an active and enthusiastic contributing community is helping position Mono to become the leading choice for development of cross platform applications.</string>
         <key>display_name</key>
-	<string>Mono</string>
-	<key>developer</key>
+        <string>Mono</string>
+        <key>developer</key>
         <string>Mono Project</string>
         <key>name</key>
         <string>%NAME%</string>
