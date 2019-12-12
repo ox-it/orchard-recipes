@@ -23,7 +23,7 @@
   <key>Input</key>
   <dict>
     <key>MUNKI_REPO_SUBDIR</key>
-    <string>%NAME$</string>
+    <string>%NAME%</string>
     <key>NAME</key>
     <string>Reflector_Teacher</string>
     <key>pkginfo</key>
