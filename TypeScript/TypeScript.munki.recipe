@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2020</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ian Collier</string>
+      <key>Email</key>
+      <string>ian.collier at cs.ox.ac.uk</string>
+      <key>Github</key>
+      <string>imc0</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the latest version of TypeScript, packages it and imports into Munki</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.TypeScript</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>TypeScript</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>DISPLAY_NAME</key>
+    <string>TypeScript - typed language for JavaScript</string>
+    <key>pkginfo</key>
+    <dict>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>developer</key>
+      <string>Microsoft</string>
+      <key>display_name</key>
+      <string>%DISPLAY_NAME%</string>
+      <key>category</key>
+      <string>Software Development</string>
+      <key>description</key>
+      <string>TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications.  It compiles to readable, standards-based JavaScript.</string>
+      <key>requires</key>
+      <array>
+        <string>Node.js</string>
+      </array>
+      <key>unattended_install</key>
+      <true/>
+    </dict>
+  </dict>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.pkg.TypeScript</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pkg_path%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
