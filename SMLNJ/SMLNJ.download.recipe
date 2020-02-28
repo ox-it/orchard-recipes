@@ -5,7 +5,7 @@
   <key>Attribution</key>
   <dict>
     <key>Copyright</key>
-    <string>University of Oxford 2020</string>
+    <string>University of Oxford 2016</string>
     <key>Author</key>
     <dict>
       <key>Name</key>
@@ -26,8 +26,10 @@
     <string>SMLNJ</string>
     <key>BASE_URL</key>
     <string>http://www.smlnj.org/</string>
+    <key>SEARCH_PATTERN1</key>
+    <string>[Cc]urrent release is .*?"(?P&lt;pkgidx&gt;[^"]+)">(?P&lt;version&gt;[0-9.]+)&lt;</string>
     <key>SEARCH_PATTERN2</key>
-    <string>"(?P&lt;pkgurl&gt;http[^"]+amd64[^"]+\.pkg)"</string>
+    <string>"(?P&lt;pkgurl&gt;http[^"]+\.pkg)"</string>
   </dict>
   <key>MinimumVersion</key>
   <string>0.2.9</string>
