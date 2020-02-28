@@ -5,7 +5,7 @@
   <key>Attribution</key>
   <dict>
     <key>Copyright</key>
-    <string>University of Oxford 2016</string>
+    <string>University of Oxford 2020</string>
     <key>Author</key>
     <dict>
       <key>Name</key>
@@ -48,44 +48,15 @@
       <string>Software Development</string>
       <key>description</key>
       <string>Standard ML of New Jersey (abbreviated SML/NJ) is a compiler for the Standard ML '97 programming language with associated libraries, tools and documentation.  Standard ML is a safe, modular, strict, functional, polymorphic programming language with compile-time type checking and type inference.</string>
+      <key>postinstall_script</key>
+      <string>#!/bin/sh
+ cd /usr/local/bin &amp;&amp; ln -sf ../smlnj/bin/* .</string>
     </dict>
   </dict>
   <key>ParentRecipe</key>
   <string>uk.ac.ox.orchard.download.SMLNJ</string>
   <key>Process</key>
   <array>
-    <dict>
-      <key>Processor</key>
-      <string>MunkiPkginfoMerger</string>
-      <key>Arguments</key>
-      <dict>
-        <key>additional_pkginfo</key>
-        <dict>
-          <key>version</key>
-          <string>%version%</string>
-          <key>receipts</key>
-          <array>
-            <dict>
-              <key>version</key>
-              <string>%version%</string>
-            </dict>
-          </array>
-          <key>installs</key>
-          <array>
-            <dict>
-              <key>path</key>
-              <string>/usr/local/smlnj/doc/html/readme/%version%-README.html</string>
-              <key>type</key>
-              <string>file</string>
-            </dict>
-          </array>
-          <key>postinstall_script</key>
-          <string>#!/bin/sh
- cd /usr/local/bin &amp;&amp; ln -sf ../smlnj/bin/* .
-          </string>
-        </dict>
-      </dict>
-    </dict>
     <dict>
       <key>Processor</key>
       <string>MunkiImporter</string>
