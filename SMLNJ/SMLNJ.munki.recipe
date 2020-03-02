@@ -47,10 +47,11 @@
       <key>category</key>
       <string>Software Development</string>
       <key>description</key>
-      <string>Standard ML of New Jersey (abbreviated SML/NJ) is a compiler for the Standard ML '97 programming language with associated libraries, tools and documentation.  Standard ML is a safe, modular, strict, functional, polymorphic programming language with compile-time type checking and type inference.</string>
+      <string>Standard ML of New Jersey (abbreviated SML/NJ) is a compiler for the Standard ML 97 programming language with associated libraries, tools and documentation.  Standard ML is a safe, modular, strict, functional, polymorphic programming language with compile-time type checking and type inference.</string>
       <key>preinstall_script</key>
       <string>#!/bin/sh
-/usr/sbin/pkgutil --forget org.smlnj.x86.pkg</string> 
+/usr/sbin/pkgutil --forget org.smlnj.x86.pkg &gt; /dev/null 2&gt;&amp;1
+exit 0</string> 
      <key>postinstall_script</key>
       <string>#!/bin/sh
  cd /usr/local/bin &amp;&amp; ln -sf ../smlnj/bin/* .</string>
