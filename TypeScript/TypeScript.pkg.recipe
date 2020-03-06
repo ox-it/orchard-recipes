@@ -122,6 +122,19 @@
         <key>Arguments</key>
         <dict>
           <key>source</key>
+          <string>%RECIPE_CACHE_DIR%/unpack/package/loc</string>
+          <key>target</key>
+          <string>%pkgroot%/%MODULE_DIR%/loc</string>
+          <key>overwrite</key>
+          <true/>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>FileMover</string>
+        <key>Arguments</key>
+        <dict>
+          <key>source</key>
           <string>%RECIPE_CACHE_DIR%/unpack/package/package.json</string>
           <key>target</key>
           <string>%pkgroot%/%MODULE_DIR%/package.json</string>
