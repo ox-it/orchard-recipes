@@ -1,0 +1,81 @@
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2020</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Stefan Lutener</string>
+      <key>Email</key>
+      <string>stefan.lutener at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>stefanj135</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads latest version of AntConc</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.munki.AntConc</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>AntConc</string>
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>%NAME%</string>
+    <key>pkginfo</key>
+    <dict>
+    <key>catalogs</key>
+    <array>
+      <string>unstable</string>
+    </array>
+    <key>category</key>
+    <string>Office and Productivity</string>
+    <key>Description</key>
+    <string>A freeware corpus analysis toolkit for concordancing and text analysis</string>
+    <key>developer</key>
+    <string>Laurence Anthony</string>
+    <key>display_name</key>
+    <string>%NAME%</string>
+    <key>name</key>
+    <string>AntConc</string>
+    <key>unattended_install</key>
+    <true/>
+    </dict>
+  </dict>
+  <key>ParentRecipe</key>
+  <string>uk.ac.ox.orchard.download.AntConc</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>DmgCreator</string>
+      <key>Arguments</key>
+      <dict>
+        <key>dmg_path</key>
+        <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%-%version%.dmg</string>
+        <key>dmg_root</key>
+        <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+      </dict>
+    </dict>
+    <dict> 
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%RECIPE_CACHE_DIR%/%NAME%/%NAME%-%version%.dmg</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
+
+
+
+
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2020</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Stefan Lutener</string>
+      <key>Email</key>
+      <string>stefan.lutener at it.ox.ac.uk</string>
+      <key>Github</key>
+      <string>stefanj135</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the current release version of AntConc</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.AntConc</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>AntConc</string>
+    <key>BASE_URL</key>
+    <string>http://www.laurenceanthony.net</string>
+    <key>SEARCH_URL</key>
+    <string>%BASE_URL%/software/antconc</string>
+    <key>SEARCH_PATTERN</key>
+    <string><![CDATA[(?P<download_url>/software/antconc/releases/AntConc.*/AntConc\.zip).*\((?P<version>.*)\)]]></string>
+  </dict>
+  <key>MiniumumVersion</key>
+  <string>1.0</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+        <string>%SEARCH_URL%</string>
+        <key>re_pattern</key>
+        <string>%SEARCH_PATTERN%</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+        <dict>
+          <key>url</key>
+          <string>%BASE_URL%%download_url%</string>
+        </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+    <dict> 
+      <key>Processor</key>
+      <string>Unarchiver</string>
+      <key>Arguments</key>
+      <dict>
+        <key>purge_destination</key>
+        <true/>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>PlistEditor</string>
+      <key>Arguments</key>
+        <dict>
+          <key>output_plist_path</key>
+          <string>%RECIPE_CACHE_DIR%/%NAME%/AntConc.app/Contents/info.plist</string>
+          <key>plist_data</key>
+          <dict>
+            <key>CFBundleVersion</key>
+            <string>%version%</string>
+            <key>CFBundleShortVersionString</key>
+            <string>%version%</string>
+          </dict>
+        </dict>
+    </dict>
+  </array>     
+</dict>
+</plist>    
+
+
