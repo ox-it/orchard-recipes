@@ -29,11 +29,11 @@
     <dict>
     <key>catalogs</key>
     <array>
-      <string>unstable</string>
+      <string>testing</string>
     </array>
     <key>category</key>
     <string>Office and Productivity</string>
-    <key>Description</key>
+    <key>description</key>
     <string>A freeware corpus analysis toolkit for concordancing and text analysis</string>
     <key>developer</key>
     <string>Laurence Anthony</string>
