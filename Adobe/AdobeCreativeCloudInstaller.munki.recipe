@@ -23,7 +23,7 @@
     <key>Input</key>
     <dict>
       <key>MUNKI_REPO_SUBDIR</key>
-      <string>Adobe_CC_2015</string>
+      <string>Adobe_CC</string>
       <key>NAME</key>
       <string>Creative Cloud Installer</string>
       <key>pkginfo</key>
