@@ -27,40 +27,32 @@
     <array>
       <dict>
         <key>Processor</key>
-        <string>URLTextSearcher</string>
+        <string>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</string>
         <key>Arguments</key>
         <dict>
-          <key>url</key>
-          <string>%SEARCH_URL%</string>
-          <key>re_pattern</key>
-          <string>%SEARCH_PATTERN%</string>
-          <key>request_headers</key>
-          <dict>
-            <key>Cookie</key>
-            <string>%SEARCH_URL_COOKIE%</string>
-          </dict>
+          <key>SOURCEFORGE_PROJECT_NAME</key>
+          <string>ganttproject</string>
+          <key>SOURCEFORGE_FILE_PATTERN</key>
+          <string>ganttproject-(?P&lt;version&gt;\d+.\d+.\d)+-r\d+.dmg</string>
         </dict>
       </dict>
+      <dict>
+          <key>Processor</key>
+          <string>URLDownloader</string>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>Versioner</string>
+        <key>Arguments</key>
         <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-              <key>filename</key>
-              <string>%NAME%-%version%.dmg</string>
-              <key>request_headers</key>
-              <dict>
-                <key>user-agent</key>
-                <string>%USER_AGENT%</string>
-              </dict>
-            	<key>url</key>
-              <string>%BASE_URL%%url%</string>
-            </dict>
+          <key>input_plist_path</key>
+          <string>%pathname%</string>
         </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
+      </dict>
+      <dict>
+          <key>Processor</key>
+          <string>EndOfCheckPhase</string>
+      </dict>
     </array>
 </dict>
 </plist>
