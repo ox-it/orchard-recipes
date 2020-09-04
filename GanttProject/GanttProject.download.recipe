@@ -33,25 +33,41 @@
           <key>SOURCEFORGE_PROJECT_NAME</key>
           <string>ganttproject</string>
           <key>SOURCEFORGE_FILE_PATTERN</key>
-          <string>ganttproject-(?P&lt;version&gt;\d+.\d+.\d)+-r\d+.dmg</string>
-        </dict>
-      </dict>
-      <dict>
-          <key>Processor</key>
-          <string>URLDownloader</string>
-      </dict>
-      <dict>
-        <key>Processor</key>
-        <string>Versioner</string>
-        <key>Arguments</key>
-        <dict>
-          <key>input_plist_path</key>
-          <string>%pathname%</string>
+          <string>ganttproject-\d+.\d+.\d+-r\d+\.dmg</string>
         </dict>
       </dict>
       <dict>
           <key>Processor</key>
           <string>EndOfCheckPhase</string>
+      </dict>
+      <dict>
+          <key>Processor</key>
+          <string>URLDownloader</string>
+          <key>Arguments</key>
+          <dict>
+            <key>filename</key>
+            <string>GanttProject.dmg</string>
+          </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>AppDmgVersioner</string>
+        <key>Arguments</key>
+        <dict>
+          <key>dmg_path</key>
+          <string>%pathname%</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>FileMover</string>
+        <key>Arguments</key>
+        <dict>
+          <key>source</key>
+          <string>%pathname%</string>
+          <key>target</key>
+          <string>%RECIPE_CACHE_DIR%/downloads/GanttProject-%version%.dmg</string>
+        </dict>
       </dict>
     </array>
 </dict>
