@@ -25,7 +25,7 @@
     <key>NAME</key>
     <string>BlueJ</string>
     <key>BASE_URL</key>
-    <string>http://bluej.org</string>
+    <string>https://bluej.org</string>
     <key>SEARCH_PATTERN</key>
     <string>download/files/BlueJ-mac-(?!legacy).+\.zip</string>
   </dict>

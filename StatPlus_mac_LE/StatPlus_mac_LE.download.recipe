@@ -23,7 +23,7 @@
 		<key>Input</key>
 		<dict>
 			<key>DOWNLOAD_URL</key>
-			<string>http://download.analystsoft.com/statplusmacle.zip</string>
+			<string>https://download.analystsoft.com/statplusmacle.zip</string>
 			<key>NAME</key>
 			<string>StatPlus_mac_LE</string>
 		</dict>

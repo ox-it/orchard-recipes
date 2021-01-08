@@ -23,7 +23,7 @@
   <key>Input</key>
   <dict>
     <key>DOWNLOAD_URL</key>
-    <string>http://www.airsquirrels.com/reflector/download/</string>
+    <string>https://www.airsquirrels.com/reflector/download/</string>
     <key>DOWNLOAD_REGEX</key>
     <string>(?P&lt;url&gt;http://download.airsquirrels.com/Reflector2/Mac/Reflector-(?P&lt;version&gt;.+).dmg)</string>
   </dict>

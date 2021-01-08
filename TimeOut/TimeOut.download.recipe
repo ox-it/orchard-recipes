@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>TimeOut</string>
         <key>BASE_URL</key>
-        <string>http://www.dejal.com</string>
+        <string>https://www.dejal.com</string>
         <key>HOMEPAGE_URL</key>
         <string>%BASE_URL%/apps/</string>
         <key>DOWNLOAD_URL</key>
