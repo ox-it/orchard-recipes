@@ -25,7 +25,7 @@
     <key>NAME</key>
     <string>AntConc</string>
     <key>BASE_URL</key>
-    <string>http://www.laurenceanthony.net</string>
+    <string>https://www.laurenceanthony.net</string>
     <key>SEARCH_URL</key>
     <string>%BASE_URL%/software/antconc</string>
     <key>SEARCH_PATTERN</key>

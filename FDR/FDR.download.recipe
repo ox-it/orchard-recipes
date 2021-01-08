@@ -25,7 +25,7 @@
     <key>NAME</key>
     <string>FDR</string>
     <key>BASE_URL</key>
-    <string>http://www.cs.ox.ac.uk/projects/fdr/</string>
+    <string>https://www.cs.ox.ac.uk/projects/fdr/</string>
     <key>SEARCH_PATTERN</key>
     <string>mac_tab_content">.*?href="(?P&lt;pkgloc&gt;[^"]+)">Download</string>
   </dict>

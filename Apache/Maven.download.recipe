@@ -19,7 +19,7 @@
         <key>Arguments</key>
         <dict>
           <key>url</key>
-          <string>http://maven.apache.org/download.cgi</string>
+          <string>https://maven.apache.org/download.cgi</string>
           <key>re_pattern</key>
           <string>(?P&lt;url&gt;http.+?apache-maven-(?P&lt;version&gt;.+?)-bin.tar.gz)</string>
         </dict>
