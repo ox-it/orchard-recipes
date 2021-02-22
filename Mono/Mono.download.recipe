@@ -86,7 +86,7 @@
         <string>%pathname%</string>
         <key>expected_authority_names</key>
         <array>
-          <string>Developer ID Installer: Xamarin Inc (7V723M9SQ5)</string>
+          <string>Developer ID Installer: Microsoft Corporation (UBF8T346G9)</string>
           <string>Developer ID Certification Authority</string>
           <string>Apple Root CA</string>
         </array>
