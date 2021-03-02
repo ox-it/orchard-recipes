@@ -31,7 +31,7 @@
     <key>SEARCH_PATTERN</key>
     <string><![CDATA[(?P<download_url>/software/antconc/releases/AntConc.*/AntConc\.zip).*\((?P<version>.*)\)]]></string>
   </dict>
-  <key>MiniumumVersion</key>
+  <key>MinimumVersion</key>
   <string>1.0</string>
   <key>Process</key>
   <array>
@@ -89,5 +89,3 @@
   </array>     
 </dict>
 </plist>    
-
-
