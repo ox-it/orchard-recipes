@@ -44,6 +44,12 @@
         <string>Creative_Cloud_Installer</string>
         <key>unattended_install</key>
         <true/>
+        <key>uninstall_method</key>
+        <string>uninstall_script</string>
+        <key>uninstall_script</key>
+      <string>#!/bin/bash
+"/Applications/Utilities/Adobe Creative Cloud/Utils/Creative Cloud Uninstaller.app/Contents/MacOS/Creative Cloud Uninstaller" -u
+</string>
       </dict>
     </dict>
     <key>MinimumVersion</key>
@@ -52,6 +58,25 @@
     <string>com.github.rtrouton.pkg.AdobeCreativeCloudInstaller</string>
     <key>Process</key>
     <array>
+      <dict>
+        <key>Arguments</key>
+        <dict>
+          <key>installs_item_paths</key>
+          <array>
+            <string>/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app</string>
+          </array>
+          <key>version_comparison_key</key>
+          <string>CFBundleShortVersionString</string>
+        </dict>
+        <key>Processor</key>
+        <string>MunkiInstallsItemsCreator</string>
+      </dict>
+      <dict>
+        <key>Arguments</key>
+        <dict/>
+        <key>Processor</key>
+        <string>MunkiPkginfoMerger</string>
+      </dict>
       <dict>
         <key>Processor</key>
         <string>MunkiImporter</string>
