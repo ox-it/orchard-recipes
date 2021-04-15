@@ -48,7 +48,7 @@
         <string>uninstall_script</string>
         <key>uninstall_script</key>
       <string>#!/bin/bash
-sudo "/Applications/Utilities/Adobe Creative Cloud/Utils/Creative Cloud Uninstaller.app/Contents/MacOS/Creative Cloud Uninstaller" -u
+"/Applications/Utilities/Adobe Creative Cloud/Utils/Creative Cloud Uninstaller.app/Contents/MacOS/Creative Cloud Uninstaller" -u
 </string>
       </dict>
     </dict>
