@@ -16,8 +16,6 @@
         <string>fuzzylogiq</string>
       </dict>
     </dict>
-    <key>Description</key>
-    <string></string>
     <key>Identifier</key>
     <string>uk.ac.ox.orchard.munki.AdobeCreativeCloudInstaller</string>
     <key>Input</key>
@@ -35,7 +33,7 @@
         <key>category</key>
         <string>Creative Cloud</string>
         <key>description</key>
-        <string>This updates the Creative Cloud app that runs in your taskbar if you have Adobe Creative Cloud apps installed.</string>
+        <string>The Creative Cloud app runs in the menu bar and allows you to install, update or remove Creative Cloud applications for which you are licensed.</string>
         <key>developer</key>
         <string>Adobe</string>
         <key>display_name</key>
