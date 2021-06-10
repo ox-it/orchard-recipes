@@ -58,7 +58,26 @@
     <array>
       <dict>
         <key>Arguments</key>
-        <dict/>
+        <dict>
+          <key>additional_pkginfo</key>
+          <dict>
+            <key>installs</key>
+            <array>
+              <dict>
+                <key>CFBundleName</key>
+                <string>Creative Cloud</string>
+                <key>CFBundleShortVersionString</key>
+                <string>%version%</string>
+                <key>path</key>
+                <string>/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app</string>
+                <key>type</key>
+                <string>application</string>
+                <key>version_comparison_key</key>
+                <string>CFBundleShortVersionString</string>
+              </dict>
+            </array>
+          </dict>
+        </dict>
         <key>Processor</key>
         <string>MunkiPkginfoMerger</string>
       </dict>
