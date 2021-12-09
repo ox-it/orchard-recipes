@@ -65,6 +65,24 @@
       </dict>
       <dict>
         <key>Processor</key>
+        <string>FileFinder</string>
+        <key>Arguments</key>
+        <dict>
+          <key>pattern</key>
+          <string>%destination_path%/*/BlueJ.app</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
+        <string>Versioner</string>
+        <key>Arguments</key>
+        <dict>
+          <key>input_plist_path</key>
+          <string>%found_filename%/Contents/Info.plist</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>Processor</key>
         <string>DmgCreator</string>
         <key>Arguments</key>
         <dict>

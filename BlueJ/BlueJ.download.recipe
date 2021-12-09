@@ -33,17 +33,6 @@
   <string>0.2.0</string>
   <key>Process</key>
   <array>
-    <dict>
-      <key>Processor</key>
-      <string>URLTextSearcher</string>
-      <key>Arguments</key>
-      <dict>
-        <key>url</key>
-        <string>%BASE_URL%</string>
-        <key>re_pattern</key>
-        <string>Version (?P&lt;version&gt;.*?),</string>
-      </dict>
-    </dict>
      <dict>
       <key>Processor</key>
       <string>URLTextSearcher</string>
