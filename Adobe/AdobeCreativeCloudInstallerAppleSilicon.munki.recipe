@@ -17,7 +17,7 @@
       </dict>
     </dict>
     <key>Identifier</key>
-    <string>uk.ac.ox.orchard.munki.AdobeCreativeCloudInstaller</string>
+    <string>uk.ac.ox.orchard.munki.AdobeCreativeCloudInstallerAppleSilicon</string>
     <key>Input</key>
     <dict>
       <key>MUNKI_REPO_SUBDIR</key>
@@ -42,7 +42,7 @@
         <string>Creative_Cloud_Installer</string>
 		<key>supported_architectures</key>
 		<array>
-			<string>x86_64</string>
+			<string>arm64</string>
 		</array>
         <key>unattended_install</key>
         <true/>
@@ -57,7 +57,7 @@
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.rtrouton.pkg.AdobeCreativeCloudInstaller</string>
+    <string>com.github.rtrouton.pkg.AdobeCreativeCloudInstallerAppleSilicon</string>
     <key>Process</key>
     <array>
       <dict>
