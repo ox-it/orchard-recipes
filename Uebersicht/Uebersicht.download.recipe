@@ -23,9 +23,9 @@
   <key>Input</key>
   <dict>
     <key>DOWNLOAD_URL</key>
-    <string>http://tracesof.net/uebersicht/</string>
+    <string>https://tracesof.net/uebersicht/</string>
     <key>DOWNLOAD_REGEX</key>
-    <string>(?P&lt;url&gt;http://tracesof.net/uebersicht/releases/Uebersicht-(?P&lt;version&gt;.*).app.zip)</string>
+    <string>(?P&lt;url&gt;https://tracesof.net/uebersicht/releases/Uebersicht-(?P&lt;version&gt;.*).app.zip)</string>
   </dict>
   <key>MinimumVersion</key>
   <string>0.2.0</string>
