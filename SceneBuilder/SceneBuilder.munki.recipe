@@ -5,7 +5,7 @@
   <key>Attribution</key>
   <dict>
     <key>Copyright</key>
-    <string>University of Oxford 2016</string>
+    <string>University of Oxford 2022</string>
     <key>Author</key>
     <dict>
       <key>Name</key>
@@ -44,6 +44,10 @@
       <string>%DISPLAY_NAME%</string>
       <key>category</key>
       <string>Software Development</string>
+      <key>supported_architectures</key>
+      <array>
+        <string>%ARCH%</string>
+      </array>
       <key>description</key>
       <string>Scene Builder is a visual layout tool that lets users quickly design JavaFX application user interfaces without coding. Users can drag and drop UI components to a work area, modify their properties, apply style sheets, and the FXML code for the layout that they are creating is automatically generated in the background.</string>
     </dict>
@@ -52,18 +56,6 @@
   <string>uk.ac.ox.orchard.download.SceneBuilder</string>
   <key>Process</key>
   <array>
-    <dict>
-      <key>Processor</key>
-      <string>MunkiPkginfoMerger</string>
-      <key>Arguments</key>
-      <dict>
-        <key>additional_pkginfo</key>
-        <dict>
-          <key>version</key>
-          <string>%version%</string>
-        </dict>
-      </dict>
-    </dict>
     <dict>
       <key>Processor</key>
       <string>MunkiImporter</string>
