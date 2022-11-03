@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Attribution</key>
+  <dict>
+    <key>Copyright</key>
+    <string>University of Oxford 2022</string>
+    <key>Author</key>
+    <dict>
+      <key>Name</key>
+      <string>Ian Collier</string>
+      <key>Email</key>
+      <string>ian.collier at cs.ox.ac.uk</string>
+      <key>Github</key>
+      <string>imc0</string>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>Downloads the current release version of SWI Prolog</string>
+  <key>Identifier</key>
+  <string>uk.ac.ox.orchard.download.SWIProlog</string>
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>SWI_Prolog</string>
+    <key>BASE_URL</key>
+    <string>https://www.swi-prolog.org/download/stable</string>
+    <key>SEARCH_PATTERN</key>
+    <string>MacOS bundle.*?&lt;a href="/download/stable/(?P&lt;dlpath&gt;.*?.dmg)"</string>
+  </dict>
+  <key>MinimumVersion</key>
+  <string>0.2.9</string>
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>URLTextSearcher</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+        <string>%BASE_URL%</string>
+        <key>re_pattern</key>
+        <string>%SEARCH_PATTERN%</string>
+        <key>re_flags</key>
+        <array>
+          <string>DOTALL</string>
+        </array>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+        <string>%BASE_URL%/%dlpath%</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>Processor</key>
+      <string>EndOfCheckPhase</string>
+    </dict>
+  </array>
+</dict>
+</plist>
