@@ -35,9 +35,9 @@
         <key>category</key>
         <string>Utilities</string>
         <key>description</key>
-        <string>Übersicht allows you to overlay HTML with CSS on your desktop using javascript or Coffee Script widgets</string>
+        <string>??bersicht allows you to overlay HTML with CSS on your desktop using javascript or Coffee Script widgets</string>
         <key>display_name</key>
-        <string>Übersicht</string>
+        <string>Uebersicht</string>
         <key>name</key>
         <string>%NAME%</string>
         <key>unattended_install</key>
