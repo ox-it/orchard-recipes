@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>Eclipse_Mars</string>
         <key>url</key>
-        <string>http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/mars/R/eclipse-jee-mars-R-macosx-cocoa-x86_64.tar.gz</string>
+        <string>https://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/mars/R/eclipse-jee-mars-R-macosx-cocoa-x86_64.tar.gz</string>
     </dict>
     <key>Process</key>
     <array>
