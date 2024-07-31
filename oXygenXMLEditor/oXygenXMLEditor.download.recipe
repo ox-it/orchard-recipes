@@ -25,7 +25,7 @@
     <key>SITE</key>
     <string>https://www.oxygenxml.com</string>
     <key>DOWNLOAD_PAGE</key>
-    <string>https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=MacOSX</string>
+    <string>https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html?os=macOS</string>
     <key>NAME</key>
     <string>Oxygen_XML_Editor</string>
   </dict>
