@@ -35,9 +35,11 @@
     <key>SEARCH_URL</key>
     <string>%BASE_URL%/download/stable</string>
     <key>SEARCH_PATTERN</key>
-    <string>(https.*\.pkg).*%CHANNEL%</string>
+    <string>(https.*\.pkg)</string>
     <key>USER_AGENT</key>
     <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12</string>
+    <key>DISABLE_CODE_SIGNATURE_VERIFICATION</key>
+    <string>True</string>
   </dict>
   <key>MinimumVersion</key>
   <string>0.4.0</string>
@@ -52,6 +54,13 @@
         <string>%SEARCH_URL%</string>
         <key>re_pattern</key>
         <string>%SEARCH_PATTERN%</string>
+        <key>result_output_var_name</key>
+        <string>mono_url</string>
+	<key>additional_env_vars</key>
+	<dict>
+		<key>mono_version</key>
+		<string>%MATCH%2</string>
+	</dict>
         <key>request_headers</key>
         <dict>
           <key>user-agent</key>
@@ -70,7 +79,7 @@
           <string>%USER_AGENT%</string>
         </dict>
         <key>url</key>
-        <string>%match%</string>
+        <string>%mono_url%</string>
       </dict>
     </dict>
     <dict>

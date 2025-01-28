@@ -23,9 +23,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import urllib2
+import urllib.request
 import json
 import re
+import ssl
 
 from autopkglib import Processor, ProcessorError
 
@@ -73,7 +74,7 @@ class ErlangURLProvider(Processor):
 
     def lookup_flavour(self, flav_name):
         '''Return flavour code from flavour name'''
-        for k,v in _FLAVOURS.items():
+        for k, v in _FLAVOURS.items():
             if v == flav_name:
                 return k
 
@@ -82,33 +83,39 @@ class ErlangURLProvider(Processor):
         target_os = self.env.get('target_os', DEFAULT_TARGET)
         flavour = self.env.get('flavour', DEFAULT_FLAVOUR)
         get_version = self.env.get('version', DEFAULT_VERSION)
-        response = urllib2.urlopen(JSON_URL).read()
-        response = re.sub('\);', '', re.sub('^jsonCallback\(', '', response))
-        erlang_tabs = json.loads(response)[u'tabs']
+
+    try:
+        context = ssl._create_unverified_context()
+        with urllib.request.urlopen(JSON_URL) as response:
+             response_data = response.read().decode('utf-8')
+        response.data = re.sub(r'\);', '', re.sub('^jsonCallback\(', '', response_data))
+        erlang_tabs = json.loads(response_data)['tabs']
+    except Exception as e:
+        raise ProcessorError(f"Failed to fetch or process the JSON data: {e}")
 
         # Use OS X information from json
-        osx_tab = (tab for tab in erlang_tabs if tab[u'name'] == u'osx').next()
+        osx_tab = next(tab for tab in erlang_tabs if tab['name'] == 'osx')
         # Select packages based on 'flavour'
         flavour_index = self.lookup_flavour(flavour)
-        packages = osx_tab[u'flavours'][flavour_index][u'packages']
+        packages = osx_tab['flavours'][flavour_index]['packages']
         # Filter the list based on the OS version we require
         filtered_packages = [package for package in packages
-                             if package[u'os'] == u'Mac OS X ' + target_os]
+                             if package['os'] == 'Mac OS X ' + target_os]
 
-        if get_version == u'latest':
+        if get_version == 'latest':
             idx=0
             # Select the latest *DMG* as this is what the of the recipe
             # rest expects (and there are .tgz links around)
             # 
             while idx < len(filtered_packages):
-                url = DOWNLOAD_BASE_URL + filtered_packages[idx][u'path']
-                if re.match('.+\.dmg$', url):
+                url = DOWNLOAD_BASE_URL + filtered_packages[idx]['path']
+                if re.match(r'.+\.dmg$', url):
                     break
                 idx=idx+1
         else:
             try:
-                url = DOWNLOAD_BASE_URL + (package for package in filtered_packages
-                        if package[u'version'] == get_version).next()[u'path']
+                url = DOWNLOAD_BASE_URL + next (package for package in filtered_packages
+                        if package['version'] == get_version).next()['path']
             except StopIteration:
                 raise ProcessorError('Specified package version %s could not be found for specified OS version %s'
                                       % (get_version, target_os))
