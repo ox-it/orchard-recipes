@@ -20,17 +20,10 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-<<<<<<< HEAD
-                <key>url</key>
-		<string>https://app.lwks.com/api/auth/download/lightworks/mac_osx</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
-=======
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
                 <key>url</key>
                 <string>https://25893642.fs1.hubspotusercontent-eu1.net/hubfs/25893642/Lightworks%20Latest%20Version/lightworks_mac.dmg</string>
->>>>>>> c56d7981398280875a5b2d35980b5cc09690b678
             </dict>
         </dict>
         <dict>
