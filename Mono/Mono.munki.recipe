@@ -9,11 +9,11 @@
       <key>Author</key>
       <dict>
         <key>Name</key>
-        <string>Gary Ballantine</string>
+        <string>Stefan Lutener</string>
         <key>Email</key>
-        <string>gary.ballantine at it.ox.ac.uk</string>
+        <string>stefan.lutener at it.ox.ac.uk</string>
         <key>Github</key>
-        <string>AltMeta</string>
+        <string>stefanj135</string>
       </dict>
     </dict>
     <key>Description</key>
@@ -59,10 +59,21 @@
     <key>Process</key>
     <array>
       <dict>
-        <key>Processor</key>
+          <key>Processor</key>
+          <string>Versioner</string>
+          <key>Arguments</key>
+          <dict>
+            <key>input_plist_path</key>
+            <string>%RECIPE_CACHE_DIR%/downloads/monoframework-mdk-*.macos10.xamarin.universal.pkg/mono.pkg/Scripts/version.plist</string>
+            <key>plist_version_key</key>
+            <string>CFBundleShortVersionString</string>
+          </dict>
+	<key>Processor</key>
         <string>MunkiImporter</string>
         <key>Arguments</key>
         <dict>
+          <key>version_comparison_key</key>
+          <string>CFBundleShortVersionString</string>
           <key>pkg_path</key>
           <string>%pathname%</string>
           <key>repo_subdirectory</key>
